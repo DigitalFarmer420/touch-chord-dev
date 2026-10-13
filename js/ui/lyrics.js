@@ -1,11 +1,11 @@
 // Two-row lyrics (uploaded songs) and Kids lyrics.
-import { KIDS_LYRICS } from "../songs/kids-songs.js?v=112.3";
-import { prog, PROG_TEST, placeBadges } from "../songs/playback.js?v=112.3";
-import { upA, upEsc } from "../songs/song.js?v=112.3";
-import { upEv, upSym, upFlagged, upSecName } from "../songs/upload.js?v=112.3";
-import { state, shared } from "../state.js?v=112.3";
-import { paintSongBar } from "./songbar.js?v=112.3";
-import { fitStrip } from "./strip.js?v=112.3";
+import { KIDS_LYRICS } from "../songs/kids-songs.js?v=112.5";
+import { prog, PROG_TEST, placeBadges } from "../songs/playback.js?v=112.5";
+import { upA, upEsc } from "../songs/song.js?v=112.5";
+import { upEv, upSym, upFlagged, upSecName } from "../songs/upload.js?v=112.5";
+import { state, shared } from "../state.js?v=112.5";
+import { paintSongBar } from "./songbar.js?v=112.5";
+import { fitStrip } from "./strip.js?v=112.5";
 // v95: full-mode two-row lyrics. Lines in play order from the song's chord / section / lyric-line map (no
 // word timing): event i is on the line the one-line bar would show for it (first line with a marker on
 // that chord, else the last line with a marker before it; -1 = the section's chords). A new entry starts
@@ -42,12 +42,28 @@ function upLyrRow(ent, curCi, cls, sec2) {
   } else sec.chords.forEach(function (c, ci) { html += tag(ci); });
   return "<span class=\"sb-row " + cls + "\">" + html + "</span>";
 }
+// iPad (pad layouts): three lyric rows (the line being sung + the next two) when the screen is tall enough,
+// else the usual two (v112.5: see below). html.lyr3 switches the CSS row count (--lr-n / --kl-n).
+export function lyrRows(kids) {
+  var de = document.documentElement, pad = de.classList.contains("lay-pad-port") || de.classList.contains("lay-pad-land");
+  // v112.5 (#3): every iPad size gets three rows (1024x768 too); phone portrait gets three Kids lyric rows
+  // (the uploaded-song bar stays at two there); phone landscape keeps two (no room at a readable size).
+  var n = pad || (kids && de.classList.contains("lay-phone-port")) ? 3 : 2;
+  var cls = kids ? "klyr3" : "lyr3";   // Kids lyrics and the uploaded-song bar keep separate classes (no flip-flop)
+  if (de.classList.contains(cls) !== (n === 3)) de.classList.toggle(cls, n === 3);
+  return n;
+}
+export function lyrPad() {
+  var c = document.documentElement.classList;
+  return c.contains("lay-pad-port") || c.contains("lay-pad-land");
+}
 export const lyrState = { k: -1, anim: 0, log: [] };
 export function paintLyr2(bar, cur) {
   var M = upLyrMap(), idx = M.at[cur >= 0 ? cur : 0], ent = M.seq[idx], nxt = M.seq[idx + 1] || null;
   var e0 = shared.U.events[cur >= 0 ? cur : 0], curCi = cur >= 0 ? e0.ci : -1;
   var alts = curCi >= 0 && !shared.U.locked && (upEv(e0.si, curCi).alternates || []).length;
   var r1 = upLyrRow(ent, curCi, "r1", false), r2 = upLyrRow(nxt, -1, "r2", !!nxt && nxt.si !== ent.si);
+  if (lyrRows() === 3) { var nx2 = M.seq[idx + 2] || null; r2 += upLyrRow(nx2, -1, "r2 r3", !!nx2 && !!nxt && nx2.si !== nxt.si); }
   var head = "<span class=\"sb-sec\">" + upEsc(upSecName(ent.si)) + "</span>", tail = alts ? "<span class=\"sb-alt\">alt \u25be</span>" : "";
   var key = head + "<span class=\"sb-lyr\"><span class=\"sb-roll\">" + r1 + r2 + "</span></span>" + tail;
   var step = idx === lyrState.k + 1 && lyrState.k >= 0 && bar._html && bar._html.indexOf("sb-lyr") >= 0;
@@ -101,6 +117,7 @@ export function paintKidsLyr() {
   if (name !== klState.name) { klState.name = name; klState.k = -1; box._html = null; }
   if (step >= 0) L.forEach(function (ln, i) { if (ln.markers.some(function (m) { return m.chordIndex <= step; })) li = i; });
   var r1 = kidsLyrRow(L[li], step, "r1"), r2 = kidsLyrRow(L[li + 1] || null, -1, "r2");
+  if (lyrRows(true) === 3) r2 += kidsLyrRow(L[li + 2] || null, -1, "r2 r3");
   var key = "<span class=\"sb-roll\">" + r1 + r2 + "</span>";
   box.setAttribute("aria-label", "Lyrics: " + L[li].text);
   if (klState.anim) { clearTimeout(klState.anim); klState.anim = 0; box._html = null; }

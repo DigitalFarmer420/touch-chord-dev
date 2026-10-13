@@ -1,13 +1,13 @@
 // Key chip / key row (Full mode key picker).
-import { activeKey, keyDegrees, keyMainNames, keyAltNames, namePc, keyRootName, setKeySpell } from "../keys.js?v=112.3";
-import { paintKidKey } from "../kids.js?v=112.3";
-import { state, scheduleSave, shared } from "../state.js?v=112.3";
-import { Theory } from "../theory/index.js?v=112.3";
-import { accSym } from "../theory/spelling.js?v=112.3";
-import { kidsKeyNow } from "./keyboard.js?v=112.3";
-import { updateSymbol } from "./nowbox.js?v=112.3";
-import { refreshHeld } from "./pads.js?v=112.3";
-import { typeHeld, extStillHeld } from "./palette.js?v=112.3";
+import { activeKey, keyDegrees, keyMainNames, keyAltNames, namePc, keyRootName, setKeySpell } from "../keys.js?v=112.5";
+import { paintKidKey } from "../kids.js?v=112.5";
+import { state, scheduleSave, shared } from "../state.js?v=112.5";
+import { Theory } from "../theory/index.js?v=112.5";
+import { accSym } from "../theory/spelling.js?v=112.5";
+import { kidsKeyNow } from "./keyboard.js?v=112.5";
+import { updateSymbol } from "./nowbox.js?v=112.5";
+import { refreshHeld } from "./pads.js?v=112.5";
+import { typeHeld, extStillHeld } from "./palette.js?v=112.5";
 
 export function keyLabel(k) {
   return accSym(keyRootName(k)) + (k.mode === "minor" ? " minor" : " major");
@@ -187,7 +187,7 @@ export function wireKeyPick() {
     updateSymbol();
     scheduleSave(0);
   });
-  document.getElementById("keyChip").addEventListener("click", function () { sel = null; paint(); pick.hidden = false; });
+  // v113 (5) port: the Key chip picker flow is retired (the chip is hidden); every mode uses the root + Major/Minor control.
   var ht = document.getElementById("howto");
   function closeHt() { ht.hidden = true; }
   document.getElementById("howtoBtn").addEventListener("click", function () { ht.hidden = false; ht.querySelector(".ht-x").focus(); });

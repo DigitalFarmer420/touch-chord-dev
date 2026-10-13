@@ -1,13 +1,13 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=112.3";
-import { syncKeySel } from "./keys.js?v=112.3";
-import { setBpm } from "./loop.js?v=112.3";
-import { VOICINGS, state, shared } from "./state.js?v=112.3";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=112.3";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=112.3";
-import { paintSimple } from "./ui/layout.js?v=112.3";
-import { setKeyModeState } from "./ui/palette.js?v=112.3";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=112.3";
+import { api as ChordAudio } from "./audio/index.js?v=112.5";
+import { syncKeySel } from "./keys.js?v=112.5";
+import { setBpm } from "./loop.js?v=112.5";
+import { VOICINGS, state, shared } from "./state.js?v=112.5";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=112.5";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=112.5";
+import { paintSimple } from "./ui/layout.js?v=112.5";
+import { setKeyModeState } from "./ui/palette.js?v=112.5";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=112.5";
 
 function markOn(groupSel, attr, value) {
   var all = document.querySelectorAll(groupSel + " button");
@@ -35,9 +35,9 @@ export function applySettings(s) {
   ChordAudio.setTrim(styleTrim(s.style));
   // v27: Key mode retired; the key picker is the only key control.
   if (s.keyMode) shared.lockKey = { pc: s.keyRoot, mode: s.keyScale === "minor" ? "minor" : "major" };
-  // v52: Simple picks up where it left off (its key control has no Auto); full mode
-  // keeps its old behaviour (the first chord sets the key).
-  else if (s.simple) shared.lockKey = s.lockKey || { pc: 0, mode: "major" };
+  // v52: Simple picks up where it left off (its key control has no Auto).
+  // v113 (5) port: Full uses the same root + Major/Minor control (no Auto), so it does too.
+  else shared.lockKey = s.lockKey || { pc: 0, mode: "major" };
   state.keyMode = false;
   state.keyRoot = s.keyRoot;
   state.keyScale = s.keyScale;

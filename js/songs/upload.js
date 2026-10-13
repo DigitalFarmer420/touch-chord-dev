@@ -1,13 +1,13 @@
 // Upload: AI prompt text, schema, answer parsing and validation, load flow.
-import { keyDegrees, SPELL_LI } from "../keys.js?v=112.3";
-import { upSave, LIB_MAX, libKey, libFind, libId, libWrite, paintLib } from "./library.js?v=112.3";
-import { progStop, progSet } from "./playback.js?v=112.3";
-import { upSelected, upKeyApply, upSelect, upStoreCopy, upLoadOne } from "./song.js?v=112.3";
-import { state, shared } from "../state.js?v=112.3";
-import { Theory } from "../theory/index.js?v=112.3";
-import { wrap12 } from "../theory/quality.js?v=112.3";
-import { computeSpec } from "../ui/pads.js?v=112.3";
-import { paintSuggestions } from "../ui/strip.js?v=112.3";
+import { keyDegrees, SPELL_LI } from "../keys.js?v=112.5";
+import { upSave, LIB_MAX, libKey, libFind, libId, libWrite, paintLib } from "./library.js?v=112.5";
+import { progStop, progSet } from "./playback.js?v=112.5";
+import { upSelected, upKeyApply, upSelect, upStoreCopy, upLoadOne } from "./song.js?v=112.5";
+import { state, shared } from "../state.js?v=112.5";
+import { Theory } from "../theory/index.js?v=112.5";
+import { wrap12 } from "../theory/quality.js?v=112.5";
+import { computeSpec } from "../ui/pads.js?v=112.5";
+import { paintSuggestions } from "../ui/strip.js?v=112.5";
 
 // ===== Song Upload (full mode only) =====
 // Contract: contract/song-contract.schema.json (embedded below as #songSchemaJson, copied to the
@@ -360,12 +360,15 @@ function upEmptyErr(pa) {
   return pa.error === "empty" ? { path: "(paste)", msg: "is empty: paste the AI's answer first" } : { path: "(paste)", msg: "has no JSON object in it (nothing between { and })" };
 }
 // Phase 1: parse. -> { done: result } (an error or the single path) or { list: {...} } to check song by song.
-export function upLoadBegin(text) {
+// opts.defer: a checked single song is returned as { pending: r } (not saved) so the dialog can run the
+// pre-save validation (validate.js) first; save it with upLoadOne(r).
+export function upLoadBegin(text, opts) {
+  var defer = !!(opts && opts.defer);
   var pa = upParseAnswer(text);
   if (pa.error === "empty" || pa.error === "nojson") return { done: { ok: false, single: true, errors: [upEmptyErr(pa)], warnings: [] } };
   if (pa.error) {
     var r0 = upCheck(text);   // the old JSON error text (line, column)
-    if (r0.ok) return { done: upLoadOne(r0) };
+    if (r0.ok) return defer ? { pending: r0 } : { done: upLoadOne(r0) };
     if (pa.listy) {   // a cut-off song list with no complete song in it
       var je = r0.errors.filter(function (e) { return e.path === "(JSON)"; })[0], lc = je && /\(line \d+, column \d+\)/.exec(je.msg);
       if (!lc) { var ls = String(text).replace(/\s+$/, "").split("\n"); lc = ["(line " + ls.length + ", column " + (ls[ls.length - 1].length + 1) + ")"]; }
@@ -376,6 +379,7 @@ export function upLoadBegin(text) {
   }
   if (pa.kind === "single") {
     var r1 = upCheckObj(pa.items[0]); r1.single = true;
+    if (r1.ok && defer) return { pending: r1 };
     return { done: r1.ok ? upLoadOne(r1) : r1 };
   }
   var L = { items: pa.items, envelope: pa.envelope, truncated: pa.truncated, warnings: [], errors: [], rows: [] };

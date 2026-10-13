@@ -48,6 +48,7 @@ lines  file
    179  js/songs/presets.js        Built-in progressions (PROGRESSIONS: every style + Kids songs) and their parsing.
    167  js/songs/song.js           The loaded uploaded song: steps, key, lock, next step.
    510  js/songs/upload.js         Upload: AI prompt text, schema, answer parsing and validation, load flow.
+   100  js/songs/validate.js       Pre-save check of AI song data (key, timing, BPM); pure; flags shown in the Upload dialog.
    252  js/state.js                One shared app state: `state` (chord / key / style / settings), `loop` (phrase loop), `shared` (mutable values more than one module writes) and persistence (localStorage keys unchanged from v112.3: touchChord.settings.v1, see STORE_KEY).
    113  js/styles.js               Style presets (sound, FX, warmth per style) and the Yoga palette gate.
     90  js/test-hooks.js           window.__* helpers for the Playwright suites. Loaded only with ?test=1 (dynamic import from main.js).
@@ -61,7 +62,7 @@ lines  file
    164  js/ui/gear.js              Gear (Config) menu: volume, band, toggles, factory reset.
    122  js/ui/hints.js             Play along hint pill (placement, misses, timers).
    158  js/ui/keyboard.js          Keyboard window (which octave shows), Kids key placement and the Kids solo note.
-   221  js/ui/keychip.js           Key chip / key row (Full mode key picker).
+   221  js/ui/keychip.js           Key chip / key row (Key chip hidden in every mode since the v113 (5) port; Full uses #kidKey).
    157  js/ui/layout.js            Simple mode, controls drawer / tabs, size-class changes.
    122  js/ui/lyrics.js            Two-row lyrics (uploaded songs) and Kids lyrics.
    295  js/ui/next.js              Next-chord marks: lookahead, next hint arrow, Kids gold pad / key.
