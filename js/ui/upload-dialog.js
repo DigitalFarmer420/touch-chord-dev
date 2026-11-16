@@ -69,13 +69,9 @@ export function paintUpload() {
   var hd = document.getElementById("upDHead");
   hd.hidden = !V;   // v107: any song in the details (was: two-version songs only, and a CSS rule beat [hidden])
   if (V) {
-    var one = !V.two, cur = one ? "simple" : V.ver;   // v107: always repainted, so no stale pick from another row
-    Array.prototype.forEach.call(hd.querySelectorAll("[data-ver]"), function (b) {
-      var off = one && b.dataset.ver === "full";
-      b.setAttribute("aria-checked", b.dataset.ver === cur ? "true" : "false");
-      b.disabled = off;
-      if (off) { b.setAttribute("aria-disabled", "true"); b.title = "Only Simple chords. Load this song again to get Full."; } else { b.removeAttribute("aria-disabled"); b.removeAttribute("title"); }
-    });
+    // rd17 (Uiux, one home per control): the chart is not picked here any more; the mode picks it (expert/ui.js syncChart).
+    var one = !V.two;
+    document.getElementById("upDChart").hidden = one;
     document.getElementById("upDNote").hidden = !one;
   }
   shared.U = V;
@@ -87,10 +83,13 @@ function upPaintDetail(ro) {
   var keyEl = document.getElementById("upKey"), tEl = document.getElementById("upTempo"), secs = document.getElementById("upSecs");
   var rev = document.getElementById("upReview");
   var lrow = document.getElementById("upLockRow");
-  lrow.hidden = !shared.U || ro;   // v105: a saved (not playing) song's details are read-only
+  lrow.hidden = !shared.U;   // rd17: My songs always shows the Lock state (read-only); the song bar's Lock is the only control
   if (shared.U) {
-    document.getElementById("upLock").setAttribute("aria-pressed", shared.U.locked ? "true" : "false");
-    document.getElementById("upLockHint").textContent = shared.U.locked ? "Chords locked: styles change the sound only, a key change moves every chord. Unlock to review or change chords." : "Unlocked: you can review and change chords.";
+    // rd17 (Uiux): read-only here; the song bar's Lock is the one control
+    var ls = document.getElementById("upLockState");
+    ls.textContent = shared.U.locked ? "\ud83d\udd12 Locked: chords stay put" : "\ud83d\udd13 Unlocked";
+    ls.dataset.locked = shared.U.locked ? "true" : "false";
+    document.getElementById("upLockHint").textContent = shared.U.locked ? "Styles change the sound only, a key change moves every chord. To review or change chords, tap Lock on the song bar." : "You can review and change chords. Tap Lock on the song bar to keep them.";
   }
   if (!shared.U) {
     keyEl.textContent = "\u2014";
@@ -230,8 +229,13 @@ function upCopy() {
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, legacy);
   else legacy();
 }
+// v3.2-ai-paste: after a Load that worked the paste box is cleared; a second tap on Load (a double tap, or a
+// tap while the phone was slow to repaint) used to replace "Loaded ..." with "(paste) is empty". Until the
+// paste box changes or the dialog opens again, Load with an empty box now keeps the Loaded message.
+var upJustLoaded = false;
 function openUpload() {
   var pick = document.getElementById("uploadPick");
+  upJustLoaded = false;
   // v105: opens as a clean list: the form is cleared, no details open, no status; playback is untouched
   ["upTitle", "upArtist", "upPaste", "upFallbackTxt"].forEach(function (id) { document.getElementById(id).value = ""; });
   ["upMsg", "upErr", "upFallback", "upCopied", "upVal"].forEach(function (id) { document.getElementById(id).hidden = true; });
@@ -267,7 +271,7 @@ export function wireUpload() {
     upShowErrors(r);
     if (r.full) { var fe = document.getElementById("upErr"); fe.textContent = "My songs is full, remove one first"; fe.hidden = false; }
     if (r.saveFail) { var se = document.getElementById("upErr"); se.textContent = "Couldn't save, storage is full"; se.hidden = false; }
-    if (!r.ok) { upStatusIntoView(); return; }
+    if (!r.ok) { upJustLoaded = false; upStatusIntoView(); return; }
     if (!r.list) {
       var n = shared.U.events.length, fl = upFlagList().length;
       var lw = r.warnings.filter(function (w) { return /^(Length check|Tempo unknown)/.test(w); }), ow = r.warnings.filter(function (w) { return lw.indexOf(w) < 0; });   // v112.12
@@ -277,10 +281,11 @@ export function wireUpload() {
         upNotesHtml(ow) + "<span class=\"us-n\">" + upEsc("Close this and tap Next or Play.") + "</span>";   // v112.13: every note, grouped
       msg.hidden = false;
       document.getElementById("upPaste").value = "";
+      upJustLoaded = true;
     } else {
       msg.innerHTML = upSummaryHtml(r);
       msg.hidden = false;
-      if (!r.skipped) document.getElementById("upPaste").value = "";   // kept so Load can run again after making room
+      if (!r.skipped) { document.getElementById("upPaste").value = ""; upJustLoaded = true; }   // kept so Load can run again after making room
     }
     ["upTitle", "upArtist"].forEach(function (id) { document.getElementById(id).value = ""; });   // v105: the form clears after Load
     shared.upOpenAlt = null; shared.upEdit = null;
@@ -325,6 +330,7 @@ export function wireUpload() {
   });
   document.getElementById("upLoad").addEventListener("click", function () {
     if (upLoading) return;   // v89: a Load tap during a run is ignored (Load itself stays tappable)
+    if (upJustLoaded && !document.getElementById("upPaste").value.trim()) return;
     unlock();
     upValHide();
     var b = upLoadBegin(document.getElementById("upPaste").value, { defer: true });
@@ -401,7 +407,6 @@ export function wireUpload() {
   document.getElementById("upReview").addEventListener("click", act);
   // Reload: the saved song comes back selected, in its own key (full-mode key locks are not saved).
   if (upRestoreSel) setTimeout(function () { if (shared.U && upInList()) { upKeyApply(upKeyNow().tonic, upKeyNow().mode); upSelect(); } }, 0);
-  document.getElementById("upLock").addEventListener("click", function () { upSetLock(!shared.U || !shared.U.locked); });
   document.getElementById("sbLock").addEventListener("click", function (e) { e.stopPropagation(); upSetLock(!shared.U || !shared.U.locked); });
   window.addEventListener("resize", function () { setTimeout(upPlaceLock, 0); });
 }

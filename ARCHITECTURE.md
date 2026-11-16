@@ -46,6 +46,7 @@ lines  file
     60  js/songs/playalong.js      Play along: advance on the marked key / chip.
    471  js/songs/playback.js       The progression player: walk, Play song, step state, song key, progSet.
    179  js/songs/presets.js        Built-in progressions (PROGRESSIONS: every style + Kids songs) and their parsing.
+    23  js/songs/proghold.js       Expert progression lock: keep the chosen sequence across a style change (pure helpers).
    167  js/songs/song.js           The loaded uploaded song: steps, key, lock, next step.
    510  js/songs/upload.js         Upload: AI prompt text, schema, answer parsing and validation, load flow.
    100  js/songs/validate.js       Pre-save check of AI song data (key, timing, BPM); pure; flags shown in the Upload dialog.
@@ -68,7 +69,7 @@ lines  file
    122  js/ui/lyrics.js            Two-row lyrics (uploaded songs) and Kids lyrics.
    295  js/ui/next.js              Next-chord marks: lookahead, next hint arrow, Kids gold pad / key.
    129  js/ui/nowbox.js            Now box: chord symbol and its fitting.
-   591  js/ui/pads.js              The chord keyboard: layout spec, pads / keys, pointer input, sounding fingers, haptics.
+   591  js/ui/pads.js              The chord keyboard: drawing the keys, pointer input, haptics (feeds touch.js).
    106  js/ui/palette.js           Chord types / extensions palette holds.
    220  js/ui/progbar.js           Progression picker (#prog): placement, name fitting, Play / Next wiring.
     26  js/ui/pulse.js             Tap flashes (Kids gold tap, full-mode tap pulse).
@@ -76,6 +77,7 @@ lines  file
    657  js/ui/strip.js             The chord table / scale strip: model, chips, taps, preview, fitting.
    180  js/ui/sustain.js           Sustain button and the sustain pool.
    101  js/ui/tour.js              First-launch Kids tour.
+   ~330  js/ui/touch.js             Touch-to-sound, no DOM: chord spec (computeSpec), finger tracking, soundFinger(pointerId, keyOf(...)), release / lift, held refresh. Shared by every keyboard view.
    340  js/ui/upload-dialog.js     Upload song dialog: prompt copy, paste, check, load, library list.
    160  js/ui/wire.js              Main event wiring (wire()): style row, sound tiles, sliders, controls.
      7  js/version.js              APP_VERSION (the one version constant) and the "Version x" label in the gear menu.
@@ -129,6 +131,10 @@ __kbWin, __magic, __applySongKey, __lyr2, __kidsLyr, __upload, __haptic` (js/tes
   twice with two copies of its state). We chose queries over an import map so that Safari < 16.4 keeps working.
 - To release a new version: `python3 tools/bump-version.py 112.4` (rewrites APP_VERSION and every `?v=`), then
   `python3 tools/check-version.py` (fails on any stale or missing `?v=`).
+- `APP_BUILD` in `js/version.js` is the full build name shown in Settings ("Build ..." with a Copy button). Web builds
+  keep the default `<APP_VERSION>-web`. For an APK, run `python3 tools/write-build.py <versionName>` (or
+  `--gradle android/app/build.gradle`) before staging the web files, so Settings matches Android's versionName. It only
+  changes the APP_BUILD line; `?v=` stays APP_VERSION.
 - The DEV badge (`.github/dev/inject-dev-badge.py`) only edits `</head>`, `<title>` and `</body>` of index.html; it
   works unchanged with this structure (checked on a copy).
 
