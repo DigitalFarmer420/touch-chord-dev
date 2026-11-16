@@ -1,18 +1,18 @@
 // Simple mode, controls drawer / tabs, size-class changes.
-import { api as ChordAudio } from "../audio/index.js?v=112.14";
-import { activeKey } from "../keys.js?v=112.14";
-import { stopPlayback } from "../loop.js?v=112.14";
-import { progStop, progWalkAt, progWalkTo } from "../songs/playback.js?v=112.14";
-import { state, loop, fingers, scheduleSave, shared } from "../state.js?v=112.14";
-import { magicHintClear } from "./next.js?v=112.14";
-import { fitNowSymbol } from "./nowbox.js?v=112.14";
-import { computeSpec, padSpan, octaveSpan, effectiveLayout, renderPads, liftFinger, refreshHeld } from "./pads.js?v=112.14";
-import { syncPalette, setKeyModeState } from "./palette.js?v=112.14";
-import { placeProg } from "./progbar.js?v=112.14";
-import { paintSimpleSrc } from "./simplesrc.js?v=112.14";
-import { paintSuggestions } from "./strip.js?v=112.14";
-import { paintSustainBtn, setSustain } from "./sustain.js?v=112.14";
-import { upPlaceLock } from "../songs/song.js?v=112.14";
+import { api as ChordAudio } from "../audio/index.js?v=112.15-fd01bfc";
+import { activeKey } from "../keys.js?v=112.15-fd01bfc";
+import { stopPlayback } from "../loop.js?v=112.15-fd01bfc";
+import { progStop, progWalkAt, progWalkTo } from "../songs/playback.js?v=112.15-fd01bfc";
+import { state, loop, fingers, scheduleSave, shared } from "../state.js?v=112.15-fd01bfc";
+import { magicHintClear } from "./next.js?v=112.15-fd01bfc";
+import { fitNowSymbol } from "./nowbox.js?v=112.15-fd01bfc";
+import { computeSpec, padSpan, octaveSpan, effectiveLayout, renderPads, liftFinger, refreshHeld } from "./pads.js?v=112.15-fd01bfc";
+import { syncPalette, setKeyModeState } from "./palette.js?v=112.15-fd01bfc";
+import { placeProg } from "./progbar.js?v=112.15-fd01bfc";
+import { paintSimpleSrc } from "./simplesrc.js?v=112.15-fd01bfc";
+import { paintSuggestions } from "./strip.js?v=112.15-fd01bfc";
+import { paintSustainBtn, setSustain } from "./sustain.js?v=112.15-fd01bfc";
+import { upPlaceLock } from "../songs/song.js?v=112.15-fd01bfc";
 
 // ---- Simple mode + responsive controls (v20) ----
 export function paintSimple() {

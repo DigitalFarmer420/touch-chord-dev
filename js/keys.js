@@ -1,8 +1,8 @@
 // The current key: lock key, key spellings, key picker data (keyRootName, modeKey, setKeySpell...).
-import { state, scheduleSave, shared } from "./state.js?v=112.14";
-import { Theory } from "./theory/index.js?v=112.14";
-import { wrap12 } from "./theory/quality.js?v=112.14";
-import { accSym } from "./theory/spelling.js?v=112.14";
+import { state, scheduleSave, shared } from "./state.js?v=112.15-fd01bfc";
+import { Theory } from "./theory/index.js?v=112.15-fd01bfc";
+import { wrap12 } from "./theory/quality.js?v=112.15-fd01bfc";
+import { accSym } from "./theory/spelling.js?v=112.15-fd01bfc";
 function keyFromChord(spec) {
   return { pc: spec.rootPc, mode: (spec.type === "minor" || spec.type === "dim") ? "minor" : "major" };
 }
