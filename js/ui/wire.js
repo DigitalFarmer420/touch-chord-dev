@@ -1,17 +1,17 @@
 // Main event wiring (wire()): style row, sound tiles, sliders, controls.
-import { api as ChordAudio } from "../audio/index.js?v=112.15-f998730";
-import { unlock } from "../audio/unlock.js?v=112.15-f998730";
-import { modeKey, namePc, buildKeySel, setKeySpell } from "../keys.js?v=112.15-f998730";
-import { killLoopVoices, onRecord, onPlay, onClear, setBpm } from "../loop.js?v=112.15-f998730";
-import { magic, progStop, prog, progSet } from "../songs/playback.js?v=112.15-f998730";
-import { upInList } from "../songs/song.js?v=112.15-f998730";
-import { VOICINGS, state, loop, padsEl, shared } from "../state.js?v=112.15-f998730";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth } from "../styles.js?v=112.15-f998730";
-import { paintKeyChip } from "./keychip.js?v=112.15-f998730";
-import { computeSpec, eatMove, renderPads, releaseFingers, onPadUp, refreshHeld } from "./pads.js?v=112.15-f998730";
-import { onPaletteDown, onPaletteUp, onTouchGone, setKeyModeState } from "./palette.js?v=112.15-f998730";
-import { paintSuggestions } from "./strip.js?v=112.15-f998730";
-import { paintSustainBtn, setSustain, wireSustain } from "./sustain.js?v=112.15-f998730";
+import { api as ChordAudio } from "../audio/index.js?v=112.15-b1457bd";
+import { unlock } from "../audio/unlock.js?v=112.15-b1457bd";
+import { modeKey, namePc, buildKeySel, setKeySpell } from "../keys.js?v=112.15-b1457bd";
+import { killLoopVoices, onRecord, onPlay, onClear, setBpm } from "../loop.js?v=112.15-b1457bd";
+import { magic, progStop, progPause, prog, progSet } from "../songs/playback.js?v=112.15-b1457bd";
+import { upInList } from "../songs/song.js?v=112.15-b1457bd";
+import { VOICINGS, state, loop, padsEl, shared } from "../state.js?v=112.15-b1457bd";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth } from "../styles.js?v=112.15-b1457bd";
+import { paintKeyChip } from "./keychip.js?v=112.15-b1457bd";
+import { computeSpec, eatMove, renderPads, releaseFingers, onPadUp, refreshHeld } from "./pads.js?v=112.15-b1457bd";
+import { onPaletteDown, onPaletteUp, onTouchGone, setKeyModeState } from "./palette.js?v=112.15-b1457bd";
+import { paintSuggestions } from "./strip.js?v=112.15-b1457bd";
+import { paintSustainBtn, setSustain, wireSustain } from "./sustain.js?v=112.15-b1457bd";
 
 export function wire() {
   var keySel = document.getElementById("keyRoot");
@@ -147,7 +147,8 @@ export function wire() {
 
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      progStop(); ChordAudio.band.hush();   // v104: hidden page = stopped, Band silent
+      if (prog.playing) progPause();   // N16: a hidden page pauses Play song (Play resumes; no auto-resume on show)
+      ChordAudio.band.hush();   // v104: Band silent
       killLoopVoices();
       releaseFingers(true);
       setSustain(false);

@@ -1,16 +1,16 @@
 // Upload: AI prompt text, schema, answer parsing and validation, load flow.
-import { keyDegrees, SPELL_LI } from "../keys.js?v=112.15-f998730";
-import { upSave, LIB_MAX, libKey, libFind, libId, libWrite, paintLib } from "./library.js?v=112.15-f998730";
-import { progStop, progSet } from "./playback.js?v=112.15-f998730";
-import { upSelected, upKeyApply, upSelect, upStoreCopy, upLoadOne } from "./song.js?v=112.15-f998730";
-import { state, shared } from "../state.js?v=112.15-f998730";
-import { Theory } from "../theory/index.js?v=112.15-f998730";
-import { wrap12 } from "../theory/quality.js?v=112.15-f998730";
-import { repairJson, tidyChord, is13, from13 } from "./normalize.js?v=112.15-f998730";
-import { normalizeAiPaste, normalizeAiVersion } from "./aipaste.js?v=112.15-f998730";
-import { upFullSecs } from "./fullchart.js?v=112.15-f998730";
-import { computeSpec } from "../ui/pads.js?v=112.15-f998730";
-import { paintSuggestions } from "../ui/strip.js?v=112.15-f998730";
+import { keyDegrees, SPELL_LI } from "../keys.js?v=112.15-b1457bd";
+import { upSave, LIB_MAX, libKey, libFind, libId, libWrite, paintLib } from "./library.js?v=112.15-b1457bd";
+import { progStop, progSet } from "./playback.js?v=112.15-b1457bd";
+import { upSelected, upKeyApply, upSelect, upStoreCopy, upLoadOne } from "./song.js?v=112.15-b1457bd";
+import { state, shared } from "../state.js?v=112.15-b1457bd";
+import { Theory } from "../theory/index.js?v=112.15-b1457bd";
+import { wrap12 } from "../theory/quality.js?v=112.15-b1457bd";
+import { repairJson, tidyChord, is13, from13 } from "./normalize.js?v=112.15-b1457bd";
+import { normalizeAiPaste, normalizeAiVersion } from "./aipaste.js?v=112.15-b1457bd";
+import { upFullSecs } from "./fullchart.js?v=112.15-b1457bd";
+import { computeSpec } from "../ui/pads.js?v=112.15-b1457bd";
+import { paintSuggestions } from "../ui/strip.js?v=112.15-b1457bd";
 
 // ===== Song Upload (full mode only) =====
 // Contract: contract/song-contract.schema.json (embedded below as #songSchemaJson, copied to the
