@@ -125,8 +125,7 @@ export function applySuggestion(item, hold) {
       maj7: !!state.extensions.maj7,
       nine: !!state.extensions.nine
     },
-    midis: highlightMidisFromSpec(spec.midis),
-    raw: spec.midis.slice()   // rd3: every sounding note, also outside the drawn keys (Expert marks it on its same-name key)
+    midis: highlightMidisFromSpec(spec.midis)
   };
   // Finger-held pads already morphed to this chord above; don't stack a
   // duplicate audition on top (doubles level, can clip). Sustain-pool
@@ -394,8 +393,6 @@ function stripModel(key) {
   return { key: key, notes: notes, chips: chips };
 }
 
-export function stripChips(key) { return stripModel(key || suggestionKey()).chips; }
-
 // Touch/pen fire on pointerup: browsers drop the synthetic click when
 // another finger is down (e.g. holding Sustain). Click stays for
 // mouse / keyboard, de-duplicated against the pointer tap.
@@ -408,7 +405,13 @@ export function wireStripTap(b, item) {
     clearTimeout(pressT);
     b.classList.add("press");
     try { b.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ }
-    stripPress(b, item, e);
+    if (kidsGoldPad(b)) { kidsGoldGo(b, "pad"); return; }   // v79
+    shared.paEvT = e.timeStamp || performance.now();
+    if (paTwin("chip", null, item, b)) return;   // v111 (D6): the same press as a root key just now
+    if (playAlongChip(b, item)) { playAlongGo(b, "chip"); return; }   // v108
+    paHintMiss("chip", b);   // v112: a hint (the chip still sounds)
+    fxTapPulse(b);   // v93
+    stripDown(item, e.pointerId);
   });
   function up(e) { upAt = Date.now(); unpress(); stripUp(e.pointerId); }
   b.addEventListener("pointerup", up);
@@ -423,18 +426,6 @@ export function wireStripTap(b, item) {
     stripTap(item);
   });
 }
-// A chip / Kids pad press (the pointerdown path of wireStripTap): b = the strip button the press belongs to (its
-// gold / Play along / hint checks), item = the chord it sounds. Exported so the Kids view's pads use this exact path.
-export function stripPress(b, item, e) {
-  if (kidsGoldPad(b)) { kidsGoldGo(b, "pad"); return; }   // v79
-  shared.paEvT = e.timeStamp || performance.now();
-  if (paTwin("chip", null, item, b)) return;   // v111 (D6): the same press as a root key just now
-  if (playAlongChip(b, item)) { playAlongGo(b, "chip"); return; }   // v108
-  paHintMiss("chip", b);   // v112: a hint (the chip still sounds)
-  fxTapPulse(b);   // v93
-  stripDown(item, e.pointerId);
-}
-export function stripRelease(pointerId) { stripUp(pointerId); }
 // No key yet: the strip on screen becomes the key (same as the first chord
 // locking it), so tapping a note doesn't re-key the strip under the finger.
 export var stripKey;
