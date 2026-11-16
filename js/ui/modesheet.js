@@ -7,10 +7,10 @@
 //     Start over. Rows drive the app's own controls (#playAlongBtn, #paHintsBtn, #progNumsBtn, #tourBtn; How to opens
 //     the How to dialog), so nothing behaves differently from before.
 // The Expert view (js/expert/ui.js) configures it: the current mode, the switch, Start over and the looks.
-import { state } from "../state.js?v=112.15-a4525ed";
-import { APP_VERSION, APP_BUILD } from "../version.js?v=112.15-a4525ed";
-import { LOOK_CHOICES, LOOK_LABELS } from "./lookmath.js?v=112.15-a4525ed";
-import { openHowto } from "./helpmenu.js?v=112.15-a4525ed";
+import { state } from "../state.js?v=112.15-26b8bd5";
+import { APP_VERSION, APP_BUILD } from "../version.js?v=112.15-26b8bd5";
+import { LOOK_CHOICES, LOOK_LABELS } from "./lookmath.js?v=112.15-26b8bd5";
+import { openHowto } from "./helpmenu.js?v=112.15-26b8bd5";
 
 export const MODES = [["kids", "Kids", "big & easy", "\u2605"], ["simple", "Simple", "chords + key", "\u25D0"], ["expert", "Expert", "everything", "\u25C6"]];
 // rd17 (Uiux, one home per control): no Keys row (the keyboard bar cycles it), no Upload row (the Song tab is its home),

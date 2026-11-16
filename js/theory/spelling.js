@@ -1,6 +1,6 @@
 // Note letters, spelling of roots / intervals / chord tones, accSym (display accidentals).
-import { normalizeExt, chordIntervals } from "./chords.js?v=112.15-a4525ed";
-import { DEGREE_STEPS } from "./keys.js?v=112.15-a4525ed";
+import { normalizeExt, chordIntervals } from "./chords.js?v=112.15-26b8bd5";
+import { DEGREE_STEPS } from "./keys.js?v=112.15-26b8bd5";
 
 // v49: display-only accidentals. "Bb" -> "B♭", "F#" -> "F♯", "m7b5" -> "m7♭5".
 // Internal names stay ASCII; call this only where text is shown.
