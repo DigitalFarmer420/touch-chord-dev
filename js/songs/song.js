@@ -1,20 +1,20 @@
 // The loaded uploaded song: steps, key, lock, next step.
-import { unlock } from "../audio/unlock.js?v=112.15-d789f3b";
-import { keyDegrees, SPELL_LI, namePc, keyRootName } from "../keys.js?v=112.15-d789f3b";
-import { upSave, LIB_MAX, libFind, libId } from "./library.js?v=112.15-d789f3b";
-import { progBadge } from "./magic.js?v=112.15-d789f3b";
-import { magic, progStop, prog, progSet, applySongKey, progRedecorate } from "./playback.js?v=112.15-d789f3b";
-import { PROG_BAR } from "./presets.js?v=112.15-d789f3b";
-import { upStep, upCheck, upBuild, upEv, upSym, upParseChord } from "./upload.js?v=112.15-d789f3b";
-import { state, shared } from "../state.js?v=112.15-d789f3b";
-import { wrap12 } from "../theory/quality.js?v=112.15-d789f3b";
-import { accSym } from "../theory/spelling.js?v=112.15-d789f3b";
-import { nxMarkSoon } from "../ui/next.js?v=112.15-d789f3b";
-import { computeSpec } from "../ui/pads.js?v=112.15-d789f3b";
-import { paintProg } from "../ui/progbar.js?v=112.15-d789f3b";
-import { paintSongBar } from "../ui/songbar.js?v=112.15-d789f3b";
-import { paintSuggestions } from "../ui/strip.js?v=112.15-d789f3b";
-import { paintUpload } from "../ui/upload-dialog.js?v=112.15-d789f3b";
+import { unlock } from "../audio/unlock.js?v=112.15-a4525ed";
+import { keyDegrees, SPELL_LI, namePc, keyRootName } from "../keys.js?v=112.15-a4525ed";
+import { upSave, LIB_MAX, libFind, libId } from "./library.js?v=112.15-a4525ed";
+import { progBadge } from "./magic.js?v=112.15-a4525ed";
+import { magic, progStop, prog, progSet, applySongKey, progRedecorate } from "./playback.js?v=112.15-a4525ed";
+import { PROG_BAR } from "./presets.js?v=112.15-a4525ed";
+import { upStep, upCheck, upBuild, upEv, upSym, upParseChord } from "./upload.js?v=112.15-a4525ed";
+import { state, shared } from "../state.js?v=112.15-a4525ed";
+import { wrap12 } from "../theory/quality.js?v=112.15-a4525ed";
+import { accSym } from "../theory/spelling.js?v=112.15-a4525ed";
+import { nxMarkSoon } from "../ui/next.js?v=112.15-a4525ed";
+import { computeSpec } from "../ui/pads.js?v=112.15-a4525ed";
+import { paintProg } from "../ui/progbar.js?v=112.15-a4525ed";
+import { paintSongBar } from "../ui/songbar.js?v=112.15-a4525ed";
+import { paintSuggestions } from "../ui/strip.js?v=112.15-a4525ed";
+import { paintUpload } from "../ui/upload-dialog.js?v=112.15-a4525ed";
 // Shown in full mode only, never for Kids (Kids plays its own songs).
 // v73: a LOCKED song also stays in Simple (Next / Play keep walking it; the song bar / Upload stay hidden there).
 export function upInList() { return !!shared.U && state.style !== "kids" && (!state.simple || !!shared.U.locked); }

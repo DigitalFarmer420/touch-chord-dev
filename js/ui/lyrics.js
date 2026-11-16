@@ -1,13 +1,13 @@
 // Two-row lyrics (uploaded songs) and Kids lyrics.
-import { KIDS_LYRICS } from "../songs/kids-songs.js?v=112.15-d789f3b";
-import { prog, PROG_TEST, placeBadges } from "../songs/playback.js?v=112.15-d789f3b";
-import { upA, upEsc } from "../songs/song.js?v=112.15-d789f3b";
-import { upEv, upSym, upFlagged, upSecName } from "../songs/upload.js?v=112.15-d789f3b";
-import { state, shared } from "../state.js?v=112.15-d789f3b";
-import { secLyrics } from "../songs/fullchart.js?v=112.15-d789f3b";
-import { paintSongBar } from "./songbar.js?v=112.15-d789f3b";
-import { fitStrip } from "./strip.js?v=112.15-d789f3b";
-import { sbCue, sbCueFor, sbChipLine } from "./songbar.js?v=112.15-d789f3b";
+import { KIDS_LYRICS } from "../songs/kids-songs.js?v=112.15-a4525ed";
+import { prog, PROG_TEST, placeBadges } from "../songs/playback.js?v=112.15-a4525ed";
+import { upA, upEsc } from "../songs/song.js?v=112.15-a4525ed";
+import { upEv, upSym, upFlagged, upSecName } from "../songs/upload.js?v=112.15-a4525ed";
+import { state, shared } from "../state.js?v=112.15-a4525ed";
+import { secLyrics } from "../songs/fullchart.js?v=112.15-a4525ed";
+import { paintSongBar } from "./songbar.js?v=112.15-a4525ed";
+import { fitStrip } from "./strip.js?v=112.15-a4525ed";
+import { sbCue, sbCueFor, sbChipLine } from "./songbar.js?v=112.15-a4525ed";
 // v95: full-mode two-row lyrics. Lines in play order from the song's chord / section / lyric-line map (no
 // word timing): event i is on the line the one-line bar would show for it (first line with a marker on
 // that chord, else the last line with a marker before it; -1 = the section's chords). A new entry starts

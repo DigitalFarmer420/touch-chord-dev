@@ -1,18 +1,18 @@
 // Simple mode, controls drawer / tabs, size-class changes.
-import { api as ChordAudio } from "../audio/index.js?v=112.15-d789f3b";
-import { activeKey } from "../keys.js?v=112.15-d789f3b";
-import { stopPlayback } from "../loop.js?v=112.15-d789f3b";
-import { progStop, progWalkAt, progWalkTo } from "../songs/playback.js?v=112.15-d789f3b";
-import { state, loop, fingers, scheduleSave, shared } from "../state.js?v=112.15-d789f3b";
-import { magicHintClear } from "./next.js?v=112.15-d789f3b";
-import { fitNowSymbol } from "./nowbox.js?v=112.15-d789f3b";
-import { computeSpec, padSpan, octaveSpan, effectiveLayout, renderPads, liftFinger, refreshHeld } from "./pads.js?v=112.15-d789f3b";
-import { syncPalette, setKeyModeState } from "./palette.js?v=112.15-d789f3b";
-import { placeProg } from "./progbar.js?v=112.15-d789f3b";
-import { paintSimpleSrc } from "./simplesrc.js?v=112.15-d789f3b";
-import { paintSuggestions } from "./strip.js?v=112.15-d789f3b";
-import { paintSustainBtn, setSustain } from "./sustain.js?v=112.15-d789f3b";
-import { upPlaceLock } from "../songs/song.js?v=112.15-d789f3b";
+import { api as ChordAudio } from "../audio/index.js?v=112.15-a4525ed";
+import { activeKey } from "../keys.js?v=112.15-a4525ed";
+import { stopPlayback } from "../loop.js?v=112.15-a4525ed";
+import { progStop, progWalkAt, progWalkTo } from "../songs/playback.js?v=112.15-a4525ed";
+import { state, loop, fingers, scheduleSave, shared } from "../state.js?v=112.15-a4525ed";
+import { magicHintClear } from "./next.js?v=112.15-a4525ed";
+import { fitNowSymbol } from "./nowbox.js?v=112.15-a4525ed";
+import { computeSpec, padSpan, octaveSpan, effectiveLayout, renderPads, liftFinger, refreshHeld } from "./pads.js?v=112.15-a4525ed";
+import { syncPalette, setKeyModeState } from "./palette.js?v=112.15-a4525ed";
+import { placeProg } from "./progbar.js?v=112.15-a4525ed";
+import { paintSimpleSrc } from "./simplesrc.js?v=112.15-a4525ed";
+import { paintSuggestions } from "./strip.js?v=112.15-a4525ed";
+import { paintSustainBtn, setSustain } from "./sustain.js?v=112.15-a4525ed";
+import { upPlaceLock } from "../songs/song.js?v=112.15-a4525ed";
 
 // ---- Simple mode + responsive controls (v20) ----
 export function paintSimple() {

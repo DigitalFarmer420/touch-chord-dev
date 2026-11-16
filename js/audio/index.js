@@ -1,12 +1,12 @@
 // Builds the one ChordAudio api (window.ChordAudio) and its Band.
 // Load every audio part first so all ChordAudio/Band prototype methods exist before the api is built.
-import "./engine.js?v=112.15-d789f3b";
-import "./synths.js?v=112.15-d789f3b";
-import "./effects.js?v=112.15-d789f3b";
-import "./bass.js?v=112.15-d789f3b";
-import "./band.js?v=112.15-d789f3b";
-import { Band } from "./band.js?v=112.15-d789f3b";
-import { ChordAudio } from "./engine.js?v=112.15-d789f3b";
+import "./engine.js?v=112.15-a4525ed";
+import "./synths.js?v=112.15-a4525ed";
+import "./effects.js?v=112.15-a4525ed";
+import "./bass.js?v=112.15-a4525ed";
+import "./band.js?v=112.15-a4525ed";
+import { Band } from "./band.js?v=112.15-a4525ed";
+import { ChordAudio } from "./engine.js?v=112.15-a4525ed";
 
 var api = new ChordAudio();
 export { api };

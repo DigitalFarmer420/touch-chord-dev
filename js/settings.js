@@ -1,15 +1,15 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=112.15-d789f3b";
-import { syncKeySel } from "./keys.js?v=112.15-d789f3b";
-import { setBpm } from "./loop.js?v=112.15-d789f3b";
-import { VOICINGS, state, shared } from "./state.js?v=112.15-d789f3b";
-import { Theory } from "./theory/index.js?v=112.15-d789f3b";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=112.15-d789f3b";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=112.15-d789f3b";
-import { paintSimple } from "./ui/layout.js?v=112.15-d789f3b";
-import { setKeyModeState } from "./ui/palette.js?v=112.15-d789f3b";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=112.15-d789f3b";
-import { lookApplyNow } from "./ui/look.js?v=112.15-d789f3b";
+import { api as ChordAudio } from "./audio/index.js?v=112.15-a4525ed";
+import { syncKeySel } from "./keys.js?v=112.15-a4525ed";
+import { setBpm } from "./loop.js?v=112.15-a4525ed";
+import { VOICINGS, state, shared } from "./state.js?v=112.15-a4525ed";
+import { Theory } from "./theory/index.js?v=112.15-a4525ed";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=112.15-a4525ed";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=112.15-a4525ed";
+import { paintSimple } from "./ui/layout.js?v=112.15-a4525ed";
+import { setKeyModeState } from "./ui/palette.js?v=112.15-a4525ed";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=112.15-a4525ed";
+import { lookApplyNow } from "./ui/look.js?v=112.15-a4525ed";
 
 function markOn(groupSel, attr, value) {
   var all = document.querySelectorAll(groupSel + " button");
