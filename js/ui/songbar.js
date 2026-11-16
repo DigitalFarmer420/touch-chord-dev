@@ -1,17 +1,17 @@
 // Song bar (uploaded song sections) and the upload active state.
-import { api as ChordAudio } from "../audio/index.js?v=112.15-26b8bd5";
-import { prog, placeBadges } from "../songs/playback.js?v=112.15-26b8bd5";
-import { paintUpNext, upSelected, upT, upA, upPlaceLock, upEsc, upCurStep } from "../songs/song.js?v=112.15-26b8bd5";
-import { upProgObj, upEv, upSym, upFlagged, upSecName } from "../songs/upload.js?v=112.15-26b8bd5";
-import { state, shared } from "../state.js?v=112.15-26b8bd5";
-import { activeKey } from "../keys.js?v=112.15-26b8bd5";
-import { secLyrics } from "../songs/fullchart.js?v=112.15-26b8bd5";
-import { upLyrMap, lyrState, paintLyr2, lyrPad } from "./lyrics.js?v=112.15-26b8bd5";
-import { fitStrip, stripChips } from "./strip.js?v=112.15-26b8bd5";
-import { nextChange, songCue, cueSoon, cueClock, cueWord, cuePieces, placeCueTag, cueChipClass } from "./chordcue.js?v=112.15-26b8bd5";
-import { songCardRows } from "../expert/model.js?v=112.15-26b8bd5";
-import { paintSimpleSrc } from "./simplesrc.js?v=112.15-26b8bd5";
-import { progLoopBar, songTempo } from "../songs/song.js?v=112.15-26b8bd5";
+import { api as ChordAudio } from "../audio/index.js?v=112.15-f998730";
+import { prog, placeBadges } from "../songs/playback.js?v=112.15-f998730";
+import { paintUpNext, upSelected, upT, upA, upPlaceLock, upEsc, upCurStep } from "../songs/song.js?v=112.15-f998730";
+import { upProgObj, upEv, upSym, upFlagged, upSecName } from "../songs/upload.js?v=112.15-f998730";
+import { state, shared } from "../state.js?v=112.15-f998730";
+import { activeKey } from "../keys.js?v=112.15-f998730";
+import { secLyrics } from "../songs/fullchart.js?v=112.15-f998730";
+import { upLyrMap, lyrState, paintLyr2, lyrPad } from "./lyrics.js?v=112.15-f998730";
+import { fitStrip, stripChips } from "./strip.js?v=112.15-f998730";
+import { nextChange, songCue, cueSoon, cueClock, cueWord, cuePieces, placeCueTag, cueChipClass } from "./chordcue.js?v=112.15-f998730";
+import { songCardRows } from "../expert/model.js?v=112.15-f998730";
+import { paintSimpleSrc } from "./simplesrc.js?v=112.15-f998730";
+import { progLoopBar, songTempo } from "../songs/song.js?v=112.15-f998730";
 // v3.2 test.5: the next-chord cue in the song bar. Full (classic) mode's rows print each chord name inline, right
 // before its word, so there the cue colours that chord name in its grid colour and underlines its word; it brightens one beat
 // before the change (Play) or when the change is the next tap. Simple (Vinh, test.5) shows the words like Expert's
