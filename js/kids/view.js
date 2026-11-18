@@ -5,27 +5,27 @@
 // Nothing here makes sound itself: a pad press goes through strip.js stripPress (the Kids pad path, with its hidden twin
 // pad in #suggest), a piano key through touch.js soundFinger / liftFinger, a gold tap through next.js kidsGoldGo,
 // Next / Play song through magic.js progNext / playback.js progPlay. So sound and timing are those of the Kids style.
-import { unlock } from "../audio/unlock.js?v=112.16-925af9e";
-import { activeKey, keyDegrees } from "../keys.js?v=112.16-925af9e";
-import { KIDS_SONG_KEY } from "../songs/kids-songs.js?v=112.16-925af9e";
-import { KIDS_LYRICS } from "../songs/kids-songs.js?v=112.16-925af9e";
-import { magicQueue, progNext } from "../songs/magic.js?v=112.16-925af9e";
-import { magic, prog, progSet, progPlay, progStop, applySongKey, progWalkAt, progWalkTo, playButtonLabel } from "../songs/playback.js?v=112.16-925af9e";
-import { progLoopBar } from "../songs/song.js?v=112.16-925af9e";
-import { nextChange, cueSoon, cueClock, cueWord, cuePieces, placeCueTag, cueLetterClass } from "../ui/chordcue.js?v=112.16-925af9e";
-import { state, fingers, shared, scheduleSave } from "../state.js?v=112.16-925af9e";
-import { wrap12 } from "../theory/quality.js?v=112.16-925af9e";
-import { APP_VERSION } from "../version.js?v=112.16-925af9e";
-import { playAlongKeyOk, paHintMiss, paHintHide } from "../ui/hints.js?v=112.16-925af9e";
-import { kidsTonic, kidsKeyNow } from "../ui/keyboard.js?v=112.16-925af9e";
-import { kidsHintItem, kidsGoldStep, kidsGoldGo, kidsGoldPad } from "../ui/next.js?v=112.16-925af9e";
-import { renderPads, keyHaptic, padKey } from "../ui/pads.js?v=112.16-925af9e";
-import { stripPress, stripRelease } from "../ui/strip.js?v=112.16-925af9e";
-import { keyOf, soundFinger, liftFinger, resoundHeldFinger } from "../ui/touch.js?v=112.16-925af9e";
-import { api as ChordAudio } from "../audio/index.js?v=112.16-925af9e";
-import { makeChip, openModeSheet } from "../ui/modesheet.js?v=112.16-925af9e";
-import { kidsRowPlan, KIDS_ROWS, kidsPadLabel } from "./grid.js?v=112.16-925af9e";
-import { registerLook, lookApplyNow } from "../ui/look.js?v=112.16-925af9e";
+import { unlock } from "../audio/unlock.js?v=112.16-9e0bfe6";
+import { activeKey, keyDegrees } from "../keys.js?v=112.16-9e0bfe6";
+import { KIDS_SONG_KEY } from "../songs/kids-songs.js?v=112.16-9e0bfe6";
+import { KIDS_LYRICS } from "../songs/kids-songs.js?v=112.16-9e0bfe6";
+import { magicQueue, progNext } from "../songs/magic.js?v=112.16-9e0bfe6";
+import { magic, prog, progSet, progPlay, progStop, applySongKey, progWalkAt, progWalkTo, playButtonLabel } from "../songs/playback.js?v=112.16-9e0bfe6";
+import { progLoopBar } from "../songs/song.js?v=112.16-9e0bfe6";
+import { nextChange, cueSoon, cueClock, cueWord, cuePieces, placeCueTag, cueLetterClass } from "../ui/chordcue.js?v=112.16-9e0bfe6";
+import { state, fingers, shared, scheduleSave } from "../state.js?v=112.16-9e0bfe6";
+import { wrap12 } from "../theory/quality.js?v=112.16-9e0bfe6";
+import { APP_VERSION } from "../version.js?v=112.16-9e0bfe6";
+import { playAlongKeyOk, paHintMiss, paHintHide } from "../ui/hints.js?v=112.16-9e0bfe6";
+import { kidsTonic, kidsKeyNow } from "../ui/keyboard.js?v=112.16-9e0bfe6";
+import { kidsHintItem, kidsGoldStep, kidsGoldGo, kidsGoldPad } from "../ui/next.js?v=112.16-9e0bfe6";
+import { renderPads, keyHaptic, padKey } from "../ui/pads.js?v=112.16-9e0bfe6";
+import { stripPress, stripRelease } from "../ui/strip.js?v=112.16-9e0bfe6";
+import { keyOf, soundFinger, liftFinger, resoundHeldFinger } from "../ui/touch.js?v=112.16-9e0bfe6";
+import { api as ChordAudio } from "../audio/index.js?v=112.16-9e0bfe6";
+import { makeChip, openModeSheet } from "../ui/modesheet.js?v=112.16-9e0bfe6";
+import { kidsRowPlan, KIDS_ROWS, kidsPadLabel } from "./grid.js?v=112.16-9e0bfe6";
+import { registerLook, lookApplyNow } from "../ui/look.js?v=112.16-9e0bfe6";
 
 // The six Kids songs (presets.js order): picture, title for parents, short chip name.
 export const KV_SONGS = {

@@ -1,13 +1,13 @@
 // Now box: chord symbol and its fitting.
-import { modeKey, syncKeySel } from "../keys.js?v=112.16-925af9e";
-import { paintLoop } from "../loop.js?v=112.16-925af9e";
-import { VOICINGS, state, scheduleSave, shared } from "../state.js?v=112.16-925af9e";
-import { accSym } from "../theory/spelling.js?v=112.16-925af9e";
-import { kbUpdate } from "./keyboard.js?v=112.16-925af9e";
-import { paintKeyChip, fitKeyRow, keyLabel } from "./keychip.js?v=112.16-925af9e";
-import { computeSpec, paintPads } from "./pads.js?v=112.16-925af9e";
-import { typeHeld, extStillHeld } from "./palette.js?v=112.16-925af9e";
-import { paintSuggestions } from "./strip.js?v=112.16-925af9e";
+import { modeKey, syncKeySel } from "../keys.js?v=112.16-9e0bfe6";
+import { paintLoop } from "../loop.js?v=112.16-9e0bfe6";
+import { VOICINGS, state, scheduleSave, shared } from "../state.js?v=112.16-9e0bfe6";
+import { accSym } from "../theory/spelling.js?v=112.16-9e0bfe6";
+import { kbUpdate } from "./keyboard.js?v=112.16-9e0bfe6";
+import { paintKeyChip, fitKeyRow, keyLabel } from "./keychip.js?v=112.16-9e0bfe6";
+import { computeSpec, paintPads } from "./pads.js?v=112.16-9e0bfe6";
+import { typeHeld, extStillHeld } from "./palette.js?v=112.16-9e0bfe6";
+import { paintSuggestions } from "./strip.js?v=112.16-9e0bfe6";
 
 // Shrink the Now symbol only when a long name (e.g. F#6sus4(add9)) would
 // overflow its card; short ones like Cmaj7 keep the full display size.

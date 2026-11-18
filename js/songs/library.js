@@ -1,11 +1,11 @@
 // My songs library (touchChord.library.v1): storage, open, versions, delete, list.
-import { progStop } from "./playback.js?v=112.16-925af9e";
-import { upSelected, upKeyApply, upKeyNow, upSelect, upEsc } from "./song.js?v=112.16-925af9e";
-import { UP_STORE, upCheck, upBuild, upRemove } from "./upload.js?v=112.16-925af9e";
-import { state, shared } from "../state.js?v=112.16-925af9e";
-import { computeSpec } from "../ui/pads.js?v=112.16-925af9e";
-import { paintSongBar } from "../ui/songbar.js?v=112.16-925af9e";
-import { paintSuggestions } from "../ui/strip.js?v=112.16-925af9e";
+import { progStop } from "./playback.js?v=112.16-9e0bfe6";
+import { upSelected, upKeyApply, upKeyNow, upSelect, upEsc } from "./song.js?v=112.16-9e0bfe6";
+import { UP_STORE, upCheck, upBuild, upRemove } from "./upload.js?v=112.16-9e0bfe6";
+import { state, shared } from "../state.js?v=112.16-9e0bfe6";
+import { computeSpec } from "../ui/pads.js?v=112.16-9e0bfe6";
+import { paintSongBar } from "../ui/songbar.js?v=112.16-9e0bfe6";
+import { paintSuggestions } from "../ui/strip.js?v=112.16-9e0bfe6";
 // v77: My songs. touchChord.library.v1 = { v: 1, active: id|null, sel, songs: [{ id, title, artist, added,
 // song: <raw JSON>, choice, reviewed, locked, liveKey }] }, max 50. U is the active song (or null).
 // Saving never fails silently (upSaveErr in the panel); a full library never evicts.

@@ -1,15 +1,15 @@
 // Next-chord marks: lookahead, next hint arrow, Kids gold pad / key.
-import { paintKidChip } from "../kids.js?v=112.16-925af9e";
-import { magicTarget, magicQueue, magicAdvance } from "../songs/magic.js?v=112.16-925af9e";
-import { magic, setItemState, prog, PROG_TEST, progPlayStart } from "../songs/playback.js?v=112.16-925af9e";
-import { upSelected, upNextStep } from "../songs/song.js?v=112.16-925af9e";
-import { state, padsEl } from "../state.js?v=112.16-925af9e";
-import { wrap12 } from "../theory/quality.js?v=112.16-925af9e";
-import { kbUpdate, kidsSoloSpec } from "./keyboard.js?v=112.16-925af9e";
-import { paintKidsLyr } from "./lyrics.js?v=112.16-925af9e";
-import { computeSpec, highlightMidisFromSpec } from "./pads.js?v=112.16-925af9e";
-import { kidsTapPulse, kidsTapLog } from "./pulse.js?v=112.16-925af9e";
-import { paintSongBar } from "./songbar.js?v=112.16-925af9e";
+import { paintKidChip } from "../kids.js?v=112.16-9e0bfe6";
+import { magicTarget, magicQueue, magicAdvance } from "../songs/magic.js?v=112.16-9e0bfe6";
+import { magic, setItemState, prog, PROG_TEST, progPlayStart } from "../songs/playback.js?v=112.16-9e0bfe6";
+import { upSelected, upNextStep } from "../songs/song.js?v=112.16-9e0bfe6";
+import { state, padsEl } from "../state.js?v=112.16-9e0bfe6";
+import { wrap12 } from "../theory/quality.js?v=112.16-9e0bfe6";
+import { kbUpdate, kidsSoloSpec } from "./keyboard.js?v=112.16-9e0bfe6";
+import { paintKidsLyr } from "./lyrics.js?v=112.16-9e0bfe6";
+import { computeSpec, highlightMidisFromSpec } from "./pads.js?v=112.16-9e0bfe6";
+import { kidsTapPulse, kidsTapLog } from "./pulse.js?v=112.16-9e0bfe6";
+import { paintSongBar } from "./songbar.js?v=112.16-9e0bfe6";
 // v99: full mode (not Kids, not Simple, not an uploaded song, which has its own next-chord outline):
 // mark the grid cell of the chord Play would sound right now. Stopped: Play starts at step 1. Playing: the
 // step after the lit one (none in the random part after one pass). No mark when that step has no grid
