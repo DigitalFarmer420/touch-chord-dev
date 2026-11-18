@@ -1,7 +1,7 @@
 // One shared app state: `state` (chord / key / style / settings), `loop` (phrase loop), `shared` (mutable values more than one module writes) and persistence (localStorage keys unchanged from v112.3: touchChord.settings.v1, see STORE_KEY).
-import { validKeyName, defaultKeyName } from "./keys.js?v=112.15-b1457bd";
-import { WARMTH_DEFAULT, clampWarmth } from "./styles.js?v=112.15-b1457bd";
-import { Theory } from "./theory/index.js?v=112.15-b1457bd";
+import { validKeyName, defaultKeyName } from "./keys.js?v=112.16-925af9e";
+import { WARMTH_DEFAULT, clampWarmth } from "./styles.js?v=112.16-925af9e";
+import { Theory } from "./theory/index.js?v=112.16-925af9e";
 
 // Shared mutable app state: the variables that more than one module writes. Read/write them as shared.<name>.
 export const shared = {
