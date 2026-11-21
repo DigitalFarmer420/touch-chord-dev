@@ -3,40 +3,40 @@
 // #sustainBtn, the Sound / FX / Layout / Loop panel #ctl, the keys #pads) with css/expert.css and adds the
 // Expert-only controls below. Every new control drives the existing code (same functions or the same
 // buttons), so sound, timing and music theory are exactly the 351c02c ones.
-import { unlock } from "../audio/unlock.js?v=112.16-f4424e6";
-import { api as ChordAudio } from "../audio/index.js?v=112.16-f4424e6";
-import { stopPlayback } from "../loop.js?v=112.16-f4424e6";
-import { activeKey } from "../keys.js?v=112.16-f4424e6";
-import { setKidKey } from "../kids.js?v=112.16-f4424e6";
-import { prog, progSet, placeBadges, setBadgeAvoid, magic, progStop, progWalkAt, progWalkTo, playButtonLabel } from "../songs/playback.js?v=112.16-f4424e6";
-import { magicQueue } from "../songs/magic.js?v=112.16-f4424e6";
-import { nextHintSpec } from "../ui/next.js?v=112.16-f4424e6";
-import { setHintAvoid } from "../ui/hints.js?v=112.16-f4424e6";
-import { progFeel, progSteps } from "../songs/presets.js?v=112.16-f4424e6";
-import { progLockPick } from "../songs/proghold.js?v=112.16-f4424e6";
-import { upSelected, upCurStep, upNextStep, upA, progLoopBar, songTempo } from "../songs/song.js?v=112.16-f4424e6";
-import { songCue, cueSoon, cueClock, cuePieces, placeCueTag, cueChipClass } from "../ui/chordcue.js?v=112.16-f4424e6";
-import { upSym, upSecName } from "../songs/upload.js?v=112.16-f4424e6";
-import { upLyrMap, lyrPad } from "../ui/lyrics.js?v=112.16-f4424e6";
-import { state, shared, fingers, loop, scheduleSave } from "../state.js?v=112.16-f4424e6";
-import { tapSimpleSrc, paintSimpleSrc } from "../ui/simplesrc.js?v=112.16-f4424e6";
-import { accSym } from "../theory/spelling.js?v=112.16-f4424e6";
-import { Theory } from "../theory/index.js?v=112.16-f4424e6";
-import { paintKeyChip, keyLabel } from "../ui/keychip.js?v=112.16-f4424e6";
-import { fitNowSymbol } from "../ui/nowbox.js?v=112.16-f4424e6";
-import { computeSpec, renderPads, refreshHeld, setWinKeys } from "../ui/pads.js?v=112.16-f4424e6";
-import { liftFinger } from "../ui/touch.js?v=112.16-f4424e6";
-import { stripRelease } from "../ui/strip.js?v=112.16-f4424e6";
-import { fitStrip, stripLabel, stripChips } from "../ui/strip.js?v=112.16-f4424e6";
-import { setExpert as setKidsViewOff, setModeHandler, kidsStartOver, setTheme as setKidsTheme } from "../kids/view.js?v=112.16-f4424e6";
-import { setSimple } from "../ui/layout.js?v=112.16-f4424e6";
-import { libSetVer } from "../songs/library.js?v=112.16-f4424e6";
-import { secLyrics } from "../songs/fullchart.js?v=112.16-f4424e6";
-import { KEYS_CHOICES, makeChip, configureSheet, openModeSheet, bootSheet, paintSheet, sheetOpen } from "../ui/modesheet.js?v=112.16-f4424e6";
-import { registerLook, lookApplyNow, lookShown } from "../ui/look.js?v=112.16-f4424e6";
-import { toggleHelpMenu } from "../ui/helpmenu.js?v=112.16-f4424e6";   // redesign-dev: the Kids view (kids-build) is the switch's Kids
+import { unlock } from "../audio/unlock.js?v=112.17-c2d19ce";
+import { api as ChordAudio } from "../audio/index.js?v=112.17-c2d19ce";
+import { stopPlayback } from "../loop.js?v=112.17-c2d19ce";
+import { activeKey } from "../keys.js?v=112.17-c2d19ce";
+import { setKidKey } from "../kids.js?v=112.17-c2d19ce";
+import { prog, progSet, placeBadges, setBadgeAvoid, magic, progStop, progWalkAt, progWalkTo, playButtonLabel } from "../songs/playback.js?v=112.17-c2d19ce";
+import { magicQueue } from "../songs/magic.js?v=112.17-c2d19ce";
+import { nextHintSpec } from "../ui/next.js?v=112.17-c2d19ce";
+import { setHintAvoid } from "../ui/hints.js?v=112.17-c2d19ce";
+import { progFeel, progSteps } from "../songs/presets.js?v=112.17-c2d19ce";
+import { progLockPick } from "../songs/proghold.js?v=112.17-c2d19ce";
+import { upSelected, upCurStep, upNextStep, upA, progLoopBar, songTempo } from "../songs/song.js?v=112.17-c2d19ce";
+import { songCue, cueSoon, cueClock, cuePieces, placeCueTag, cueChipClass } from "../ui/chordcue.js?v=112.17-c2d19ce";
+import { upSym, upSecName } from "../songs/upload.js?v=112.17-c2d19ce";
+import { upLyrMap, lyrPad } from "../ui/lyrics.js?v=112.17-c2d19ce";
+import { state, shared, fingers, loop, scheduleSave } from "../state.js?v=112.17-c2d19ce";
+import { tapSimpleSrc, paintSimpleSrc } from "../ui/simplesrc.js?v=112.17-c2d19ce";
+import { accSym } from "../theory/spelling.js?v=112.17-c2d19ce";
+import { Theory } from "../theory/index.js?v=112.17-c2d19ce";
+import { paintKeyChip, keyLabel } from "../ui/keychip.js?v=112.17-c2d19ce";
+import { fitNowSymbol } from "../ui/nowbox.js?v=112.17-c2d19ce";
+import { computeSpec, renderPads, refreshHeld, setWinKeys } from "../ui/pads.js?v=112.17-c2d19ce";
+import { liftFinger } from "../ui/touch.js?v=112.17-c2d19ce";
+import { stripRelease } from "../ui/strip.js?v=112.17-c2d19ce";
+import { fitStrip, stripLabel, stripChips } from "../ui/strip.js?v=112.17-c2d19ce";
+import { setExpert as setKidsViewOff, setModeHandler, kidsStartOver, setTheme as setKidsTheme } from "../kids/view.js?v=112.17-c2d19ce";
+import { setSimple } from "../ui/layout.js?v=112.17-c2d19ce";
+import { libSetVer } from "../songs/library.js?v=112.17-c2d19ce";
+import { secLyrics } from "../songs/fullchart.js?v=112.17-c2d19ce";
+import { KEYS_CHOICES, makeChip, configureSheet, openModeSheet, bootSheet, paintSheet, sheetOpen } from "../ui/modesheet.js?v=112.17-c2d19ce";
+import { registerLook, lookApplyNow, lookShown } from "../ui/look.js?v=112.17-c2d19ce";
+import { toggleHelpMenu } from "../ui/helpmenu.js?v=112.17-c2d19ce";   // redesign-dev: the Kids view (kids-build) is the switch's Kids
 import { EXPERT_STORE, parsePref, prefFromUrl, modeOf, modeTarget, typeBarInit, typeBarReduce, typeBarLabel, TYPEBAR_HOLD_MS,
-  sourceInit, sourceReduce, progDots, songCardRows, capLayout, cardHead, STYLE_MENU, styleName, expertWindowKeys, expertStyleFix, fullToExpert, chartFor } from "./model.js?v=112.16-f4424e6";
+  sourceInit, sourceReduce, progDots, songCardRows, capLayout, cardHead, STYLE_MENU, styleName, expertWindowKeys, expertStyleFix, fullToExpert, chartFor } from "./model.js?v=112.17-c2d19ce";
 // rd6: ?test=1&classic=1 keeps the legacy classic screens (Full layout, Kids style chip in Simple) for the sound-equivalence
 // suites (audioeq / kvaudio replay the 351c02c taps). Users can no longer reach them.
 const CLASSIC = /[?&]test=1(&|$)/.test(location.search) && /[?&]classic=1(&|$)/.test(location.search);

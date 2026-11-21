@@ -1,15 +1,15 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=112.16-f4424e6";
-import { syncKeySel } from "./keys.js?v=112.16-f4424e6";
-import { setBpm } from "./loop.js?v=112.16-f4424e6";
-import { VOICINGS, state, shared } from "./state.js?v=112.16-f4424e6";
-import { Theory } from "./theory/index.js?v=112.16-f4424e6";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=112.16-f4424e6";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=112.16-f4424e6";
-import { paintSimple } from "./ui/layout.js?v=112.16-f4424e6";
-import { setKeyModeState } from "./ui/palette.js?v=112.16-f4424e6";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=112.16-f4424e6";
-import { lookApplyNow } from "./ui/look.js?v=112.16-f4424e6";
+import { api as ChordAudio } from "./audio/index.js?v=112.17-c2d19ce";
+import { syncKeySel } from "./keys.js?v=112.17-c2d19ce";
+import { setBpm } from "./loop.js?v=112.17-c2d19ce";
+import { VOICINGS, state, shared } from "./state.js?v=112.17-c2d19ce";
+import { Theory } from "./theory/index.js?v=112.17-c2d19ce";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=112.17-c2d19ce";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=112.17-c2d19ce";
+import { paintSimple } from "./ui/layout.js?v=112.17-c2d19ce";
+import { setKeyModeState } from "./ui/palette.js?v=112.17-c2d19ce";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=112.17-c2d19ce";
+import { lookApplyNow } from "./ui/look.js?v=112.17-c2d19ce";
 
 // N20 PR-A (Simple phone portrait): the style chips sit on one scrolling line. Scroll the picked chip fully into
 // view, clear of the 20 px right fade, after settings load, on a style pick, on resize / rotation and on entering
