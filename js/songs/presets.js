@@ -1,12 +1,12 @@
 // Built-in progressions (PROGRESSIONS: every style + Kids songs) and their parsing.
-import { keyDegrees } from "../keys.js?v=2026.11.21.1-1acdf32";
-import { upInList, upSteps } from "./song.js?v=2026.11.21.1-1acdf32";
-import { upProgObj } from "./upload.js?v=2026.11.21.1-1acdf32";
-import { state, shared } from "../state.js?v=2026.11.21.1-1acdf32";
-import { Theory } from "../theory/index.js?v=2026.11.21.1-1acdf32";
-import { wrap12, blankExt } from "../theory/quality.js?v=2026.11.21.1-1acdf32";
-import { accSym } from "../theory/spelling.js?v=2026.11.21.1-1acdf32";
-import { STRIP_QUAL, plainRootSpell } from "../ui/strip.js?v=2026.11.21.1-1acdf32";
+import { keyDegrees } from "../keys.js?v=2026.11.21.1-f68e3ad";
+import { upInList, upSteps } from "./song.js?v=2026.11.21.1-f68e3ad";
+import { upProgObj } from "./upload.js?v=2026.11.21.1-f68e3ad";
+import { state, shared } from "../state.js?v=2026.11.21.1-f68e3ad";
+import { Theory } from "../theory/index.js?v=2026.11.21.1-f68e3ad";
+import { wrap12, blankExt } from "../theory/quality.js?v=2026.11.21.1-f68e3ad";
+import { accSym } from "../theory/spelling.js?v=2026.11.21.1-f68e3ad";
+import { STRIP_QUAL, plainRootSpell } from "../ui/strip.js?v=2026.11.21.1-f68e3ad";
 const PROG_BPM = 80;
 export var PROG_BAR;
 function P(name, s) { return { name: name, steps: s.split("|") }; }

@@ -5,27 +5,27 @@
 // Nothing here makes sound itself: a pad press goes through strip.js stripPress (the Kids pad path, with its hidden twin
 // pad in #suggest), a piano key through touch.js soundFinger / liftFinger, a gold tap through next.js kidsGoldGo,
 // Next / Play song through magic.js progNext / playback.js progPlay. So sound and timing are those of the Kids style.
-import { unlock } from "../audio/unlock.js?v=2026.11.21.1-1acdf32";
-import { activeKey, keyDegrees } from "../keys.js?v=2026.11.21.1-1acdf32";
-import { KIDS_SONG_KEY } from "../songs/kids-songs.js?v=2026.11.21.1-1acdf32";
-import { KIDS_LYRICS } from "../songs/kids-songs.js?v=2026.11.21.1-1acdf32";
-import { magicQueue, progNext } from "../songs/magic.js?v=2026.11.21.1-1acdf32";
-import { magic, prog, progSet, progPlay, progStop, applySongKey, progWalkAt, progWalkTo, playButtonLabel } from "../songs/playback.js?v=2026.11.21.1-1acdf32";
-import { progLoopBar } from "../songs/song.js?v=2026.11.21.1-1acdf32";
-import { nextChange, cueSoon, cueClock, cueWord, cuePieces, placeCueTag, cueLetterClass } from "../ui/chordcue.js?v=2026.11.21.1-1acdf32";
-import { state, fingers, shared, scheduleSave } from "../state.js?v=2026.11.21.1-1acdf32";
-import { wrap12 } from "../theory/quality.js?v=2026.11.21.1-1acdf32";
-import { APP_VERSION } from "../version.js?v=2026.11.21.1-1acdf32";
-import { playAlongKeyOk, paHintMiss, paHintHide } from "../ui/hints.js?v=2026.11.21.1-1acdf32";
-import { kidsTonic, kidsKeyNow } from "../ui/keyboard.js?v=2026.11.21.1-1acdf32";
-import { kidsHintItem, kidsGoldStep, kidsGoldGo, kidsGoldPad } from "../ui/next.js?v=2026.11.21.1-1acdf32";
-import { renderPads, keyHaptic, padKey } from "../ui/pads.js?v=2026.11.21.1-1acdf32";
-import { stripPress, stripRelease } from "../ui/strip.js?v=2026.11.21.1-1acdf32";
-import { keyOf, soundFinger, liftFinger, resoundHeldFinger } from "../ui/touch.js?v=2026.11.21.1-1acdf32";
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.21.1-1acdf32";
-import { makeChip, openModeSheet } from "../ui/modesheet.js?v=2026.11.21.1-1acdf32";
-import { kidsRowPlan, KIDS_ROWS, kidsPadLabel } from "./grid.js?v=2026.11.21.1-1acdf32";
-import { registerLook, lookApplyNow } from "../ui/look.js?v=2026.11.21.1-1acdf32";
+import { unlock } from "../audio/unlock.js?v=2026.11.21.1-f68e3ad";
+import { activeKey, keyDegrees } from "../keys.js?v=2026.11.21.1-f68e3ad";
+import { KIDS_SONG_KEY } from "../songs/kids-songs.js?v=2026.11.21.1-f68e3ad";
+import { KIDS_LYRICS } from "../songs/kids-songs.js?v=2026.11.21.1-f68e3ad";
+import { magicQueue, progNext } from "../songs/magic.js?v=2026.11.21.1-f68e3ad";
+import { magic, prog, progSet, progPlay, progStop, applySongKey, progWalkAt, progWalkTo, playButtonLabel } from "../songs/playback.js?v=2026.11.21.1-f68e3ad";
+import { progLoopBar } from "../songs/song.js?v=2026.11.21.1-f68e3ad";
+import { nextChange, cueSoon, cueClock, cueWord, cuePieces, placeCueTag, cueLetterClass } from "../ui/chordcue.js?v=2026.11.21.1-f68e3ad";
+import { state, fingers, shared, scheduleSave } from "../state.js?v=2026.11.21.1-f68e3ad";
+import { wrap12 } from "../theory/quality.js?v=2026.11.21.1-f68e3ad";
+import { APP_VERSION } from "../version.js?v=2026.11.21.1-f68e3ad";
+import { playAlongKeyOk, paHintMiss, paHintHide } from "../ui/hints.js?v=2026.11.21.1-f68e3ad";
+import { kidsTonic, kidsKeyNow } from "../ui/keyboard.js?v=2026.11.21.1-f68e3ad";
+import { kidsHintItem, kidsGoldStep, kidsGoldGo, kidsGoldPad } from "../ui/next.js?v=2026.11.21.1-f68e3ad";
+import { renderPads, keyHaptic, padKey } from "../ui/pads.js?v=2026.11.21.1-f68e3ad";
+import { stripPress, stripRelease } from "../ui/strip.js?v=2026.11.21.1-f68e3ad";
+import { keyOf, soundFinger, liftFinger, resoundHeldFinger } from "../ui/touch.js?v=2026.11.21.1-f68e3ad";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.21.1-f68e3ad";
+import { makeChip, openModeSheet } from "../ui/modesheet.js?v=2026.11.21.1-f68e3ad";
+import { kidsRowPlan, KIDS_ROWS, kidsPadLabel } from "./grid.js?v=2026.11.21.1-f68e3ad";
+import { registerLook, lookApplyNow } from "../ui/look.js?v=2026.11.21.1-f68e3ad";
 
 // The six Kids songs (presets.js order): picture, title for parents, short chip name.
 export const KV_SONGS = {
@@ -382,9 +382,8 @@ function lyrHtml() {
   var land = document.documentElement.classList.contains("lay-phone-land");   // sideways: the next line is hidden
   var cue = kidsCue(L, cur, li, land ? 1 : 2);
   if (cue) cue.cls = cueLetterClass(cue.chord);
-  // test.5 crowding fix: phones keep a band above each line for the letter (kids.css); an iPad's big lines leave no
-  // room for one, so there the letter is inline, right of its word.
-  var inl = document.documentElement.classList.contains("lay-pad-port") || document.documentElement.classList.contains("lay-pad-land");
+  // Vinh 2026-11-21: the pad letter always sits inline, immediately right of its word (same height as that lyric line).
+  var inl = true;
   function paintRange(segs, R) {   // segs [{a, b, cls}] covering the line; the cue word gets "cue" on top
     var out = "";
     segs.forEach(function (sg) {
