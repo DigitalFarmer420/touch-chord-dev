@@ -1,14 +1,14 @@
 // Kids style: the one-chip Kids strip, Kids key control (kidKey / wireKidKey).
-import { unlock } from "./audio/unlock.js?v=112.16-ab58cef";
-import { activeKey, defaultKeyName, keyRootName } from "./keys.js?v=112.16-ab58cef";
-import { magicHome } from "./songs/magic.js?v=112.16-ab58cef";
-import { magic, prog } from "./songs/playback.js?v=112.16-ab58cef";
-import { state, scheduleSave } from "./state.js?v=112.16-ab58cef";
-import { wrap12 } from "./theory/quality.js?v=112.16-ab58cef";
-import { accSym } from "./theory/spelling.js?v=112.16-ab58cef";
-import { setLockKey } from "./ui/keychip.js?v=112.16-ab58cef";
-import { updateSymbol } from "./ui/nowbox.js?v=112.16-ab58cef";
-import { STRIP_ICONS, prettyAcc, wireStripTap } from "./ui/strip.js?v=112.16-ab58cef";
+import { unlock } from "./audio/unlock.js?v=112.16-f4424e6";
+import { activeKey, defaultKeyName, keyRootName } from "./keys.js?v=112.16-f4424e6";
+import { magicHome } from "./songs/magic.js?v=112.16-f4424e6";
+import { magic, prog } from "./songs/playback.js?v=112.16-f4424e6";
+import { state, scheduleSave } from "./state.js?v=112.16-f4424e6";
+import { wrap12 } from "./theory/quality.js?v=112.16-f4424e6";
+import { accSym } from "./theory/spelling.js?v=112.16-f4424e6";
+import { setLockKey } from "./ui/keychip.js?v=112.16-f4424e6";
+import { updateSymbol } from "./ui/nowbox.js?v=112.16-f4424e6";
+import { STRIP_ICONS, prettyAcc, wireStripTap } from "./ui/strip.js?v=112.16-f4424e6";
 // v70: Kids strip = ONE big basic triad chip: the chord now current in the walk / loop
 // (or the home triad before anything plays). The full board is still built underneath
 // (hidden) so the progression, badges logic and magic Next pool are exactly as before.
@@ -127,21 +127,21 @@ export function wireKidKey() {
     if (!onArrow) e.preventDefault();
     unlock();
     // One step per ~quarter of the box (at least 36 px) so a small wobble does nothing.
-    drag = { id: e.pointerId, x: e.clientX, unit: Math.max(36, root.clientWidth / 4), cap: false };
+    drag = { id: e.pointerId, x: e.clientX / (window.tcZoom || 1), unit: Math.max(36, root.clientWidth / 4), cap: false };
     // On an arrow the capture waits for real movement, so a plain tap still clicks the arrow.
     if (!onArrow) { drag.cap = true; try { root.setPointerCapture(e.pointerId); } catch (err) {} }
   });
   root.addEventListener("pointermove", function (e) {
     if (!drag || e.pointerId !== drag.id) return;
     e.preventDefault();
-    var dx = e.clientX - drag.x;
+    var dx = e.clientX / (window.tcZoom || 1) - drag.x;
     if (!drag.cap && Math.abs(dx) > 8) { drag.cap = true; try { root.setPointerCapture(e.pointerId); } catch (err) {} }
     while (Math.abs(dx) >= drag.unit) {
       var d = dx > 0 ? 1 : -1;
       swiped = true;
       step(d);
       drag.x += d * drag.unit;
-      dx = e.clientX - drag.x;
+      dx = e.clientX / (window.tcZoom || 1) - drag.x;
     }
   });
   function end(e) { if (drag && e.pointerId === drag.id) drag = null; }

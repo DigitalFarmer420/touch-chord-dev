@@ -1,16 +1,16 @@
 // Magic Next (one chord per tap).
-import { api as ChordAudio } from "../audio/index.js?v=112.16-ab58cef";
-import { magic, progStop, prog, PROG_TEST, progLockKey, progPauseMoveTo, progWalkFollow } from "./playback.js?v=112.16-ab58cef";
-import { sameChord } from "./presets.js?v=112.16-ab58cef";
-import { progRingSec } from "./song.js?v=112.16-ab58cef";
-import { state, shared } from "../state.js?v=112.16-ab58cef";
-import { wrap12 } from "../theory/quality.js?v=112.16-ab58cef";
-import { paHintAdvanced } from "../ui/hints.js?v=112.16-ab58cef";
-import { paintNextHint, paintProgActive, magicHintClear } from "../ui/next.js?v=112.16-ab58cef";
-import { paintProg } from "../ui/progbar.js?v=112.16-ab58cef";
-import { fxStepPulse } from "../ui/pulse.js?v=112.16-ab58cef";
-import { clearSuggestPreview, applySuggestion, stripLabel } from "../ui/strip.js?v=112.16-ab58cef";
-import { sustainPool } from "../ui/sustain.js?v=112.16-ab58cef";
+import { api as ChordAudio } from "../audio/index.js?v=112.16-f4424e6";
+import { magic, progStop, prog, PROG_TEST, progLockKey, progPauseMoveTo, progWalkFollow } from "./playback.js?v=112.16-f4424e6";
+import { sameChord } from "./presets.js?v=112.16-f4424e6";
+import { progRingSec } from "./song.js?v=112.16-f4424e6";
+import { state, shared } from "../state.js?v=112.16-f4424e6";
+import { wrap12 } from "../theory/quality.js?v=112.16-f4424e6";
+import { paHintAdvanced } from "../ui/hints.js?v=112.16-f4424e6";
+import { paintNextHint, paintProgActive, magicHintClear } from "../ui/next.js?v=112.16-f4424e6";
+import { paintProg } from "../ui/progbar.js?v=112.16-f4424e6";
+import { fxStepPulse } from "../ui/pulse.js?v=112.16-f4424e6";
+import { clearSuggestPreview, applySuggestion, stripLabel } from "../ui/strip.js?v=112.16-f4424e6";
+import { sustainPool } from "../ui/sustain.js?v=112.16-f4424e6";
 // v68: magic Next. Each tap plays ONE chord: the first N taps walk the progression in order
 // (1 bar each at the style's BPM), then each tap is a random chord from the board (never the
 // same twice in a row, weighted toward strong moves), every 4th or 8th one the home chord for

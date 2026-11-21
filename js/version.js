@@ -8,7 +8,7 @@ var APP_BUILD = "112.16-web";
 // The Pages deploy stamps a copy of the site with python3 tools/stamp-build.py <dir> <sha>, which sets it to
 // APP_VERSION-<short sha> here and in every ?v= tag, so each deploy (even a JS- or CSS-only one) is a new
 // sw.js?v=BUILD_ID registration with its own cache. Never commit a stamped value.
-var BUILD_ID = "112.16-ab58cef";
+var BUILD_ID = "112.16-f4424e6";
 export { APP_VERSION, APP_BUILD, BUILD_ID };
 document.addEventListener("DOMContentLoaded", function () {
 var v = document.getElementById("appVersion");
