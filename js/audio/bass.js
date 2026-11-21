@@ -1,5 +1,5 @@
 // Band bass lines (bass, sub, walking-bass helpers).
-import { bandPc, Band } from "./band.js?v=2026.11.21.1-e4c4e75";
+import { bandPc, Band } from "./band.js?v=2026.11.21.1-dc917a5";
 // Bass: sine + a little 2nd (and 3rd) harmonic so phone speakers carry it.
 Band.prototype.bass = function (t, midi, dur, v, kind) {
   var ctx = this.audio.ctx, f = 440 * Math.pow(2, (midi - 69) / 12), lp = ctx.createBiquadFilter();
