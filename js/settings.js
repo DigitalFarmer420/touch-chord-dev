@@ -1,15 +1,15 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=2026.11.21.1-d12ddc5";
-import { syncKeySel } from "./keys.js?v=2026.11.21.1-d12ddc5";
-import { setBpm } from "./loop.js?v=2026.11.21.1-d12ddc5";
-import { VOICINGS, state, shared } from "./state.js?v=2026.11.21.1-d12ddc5";
-import { Theory } from "./theory/index.js?v=2026.11.21.1-d12ddc5";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.21.1-d12ddc5";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.21.1-d12ddc5";
-import { paintSimple } from "./ui/layout.js?v=2026.11.21.1-d12ddc5";
-import { setKeyModeState } from "./ui/palette.js?v=2026.11.21.1-d12ddc5";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.21.1-d12ddc5";
-import { lookApplyNow } from "./ui/look.js?v=2026.11.21.1-d12ddc5";
+import { api as ChordAudio } from "./audio/index.js?v=2026.11.21.2-b012aa5";
+import { syncKeySel } from "./keys.js?v=2026.11.21.2-b012aa5";
+import { setBpm } from "./loop.js?v=2026.11.21.2-b012aa5";
+import { VOICINGS, state, shared } from "./state.js?v=2026.11.21.2-b012aa5";
+import { Theory } from "./theory/index.js?v=2026.11.21.2-b012aa5";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.21.2-b012aa5";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.21.2-b012aa5";
+import { paintSimple } from "./ui/layout.js?v=2026.11.21.2-b012aa5";
+import { setKeyModeState } from "./ui/palette.js?v=2026.11.21.2-b012aa5";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.21.2-b012aa5";
+import { lookApplyNow } from "./ui/look.js?v=2026.11.21.2-b012aa5";
 
 // N20 PR-A (Simple phone portrait): the style chips sit on one scrolling line. Scroll the picked chip fully into
 // view, clear of the 20 px right fade, after settings load, on a style pick, on resize / rotation and on entering
