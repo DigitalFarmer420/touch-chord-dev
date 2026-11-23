@@ -1,6 +1,6 @@
 // Band: drums and groove per style, the beat scheduler.
-import { bandBassMidi, bandIv } from "./bass.js?v=2026.11.23.1-246cdcb";
-import { ChordAudio } from "./engine.js?v=2026.11.23.1-246cdcb";
+import { bandBassMidi, bandIv } from "./bass.js?v=2026.11.23.2-14ce535";
+import { ChordAudio } from "./engine.js?v=2026.11.23.2-14ce535";
 
 // ===== v75 Band, STEP ONE: a separate groove layer (bass + drums, Jazz adds soft comping) =====
 // Spec: v69/GROOVE-STEP1-SPEC.md (+ amendments). Own gain bus -> limiter -> master Volume (vol), so
