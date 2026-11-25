@@ -8,7 +8,7 @@ var APP_BUILD = "2026.11.24.1-web";
 // The Pages deploy stamps a copy of the site with python3 tools/stamp-build.py <dir> <sha>, which sets it to
 // APP_VERSION-<short sha> here and in every ?v= tag, so each deploy (even a JS- or CSS-only one) is a new
 // sw.js?v=BUILD_ID registration with its own cache. Never commit a stamped value.
-var BUILD_ID = "2026.11.24.1-5d51e9d";
+var BUILD_ID = "2026.11.24.1-a97dd53";
 export { APP_VERSION, APP_BUILD, BUILD_ID };
 document.addEventListener("DOMContentLoaded", function () {
 var v = document.getElementById("appVersion");
