@@ -1,10 +1,10 @@
 // Sustain button and the sustain pool.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.23.4-0d0bc40";
-import { unlock } from "../audio/unlock.js?v=2026.11.23.4-0d0bc40";
-import { finalizeOne } from "../loop.js?v=2026.11.23.4-0d0bc40";
-import { state, loop, shared } from "../state.js?v=2026.11.23.4-0d0bc40";
-import { updateSymbol } from "./nowbox.js?v=2026.11.23.4-0d0bc40";
-import { stripTails } from "./strip.js?v=2026.11.23.4-0d0bc40";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.23.4-353acd8";
+import { unlock } from "../audio/unlock.js?v=2026.11.23.4-353acd8";
+import { finalizeOne } from "../loop.js?v=2026.11.23.4-353acd8";
+import { state, loop, shared } from "../state.js?v=2026.11.23.4-353acd8";
+import { updateSymbol } from "./nowbox.js?v=2026.11.23.4-353acd8";
+import { stripTails } from "./strip.js?v=2026.11.23.4-353acd8";
 export var sustainPool;
 
 function sustainEnabled() {
