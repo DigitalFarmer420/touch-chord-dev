@@ -1,8 +1,8 @@
 // Style presets (sound, FX, warmth per style) and the Yoga palette gate.
-import { api as ChordAudio } from "./audio/index.js?v=2026.11.23.4-353acd8";
-import { setBpm } from "./loop.js?v=2026.11.23.4-353acd8";
-import { VOICINGS, state, shared } from "./state.js?v=2026.11.23.4-353acd8";
-import { paintBand } from "./ui/gear.js?v=2026.11.23.4-353acd8";
+import { api as ChordAudio } from "./audio/index.js?v=2026.11.24.1-5d51e9d";
+import { setBpm } from "./loop.js?v=2026.11.24.1-5d51e9d";
+import { VOICINGS, state, shared } from "./state.js?v=2026.11.24.1-5d51e9d";
+import { paintBand } from "./ui/gear.js?v=2026.11.24.1-5d51e9d";
 
 // ---- Warmth + factory style presets ----
 export const WARMTH_DEFAULT = 25;
