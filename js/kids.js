@@ -1,14 +1,14 @@
 // Kids style: the one-chip Kids strip, Kids key control (kidKey / wireKidKey).
-import { unlock } from "./audio/unlock.js?v=2026.11.27.8-5cd5a12";
-import { activeKey, defaultKeyName, keyRootName } from "./keys.js?v=2026.11.27.8-5cd5a12";
-import { magicHome } from "./songs/magic.js?v=2026.11.27.8-5cd5a12";
-import { magic, prog } from "./songs/playback.js?v=2026.11.27.8-5cd5a12";
-import { state, scheduleSave } from "./state.js?v=2026.11.27.8-5cd5a12";
-import { wrap12 } from "./theory/quality.js?v=2026.11.27.8-5cd5a12";
-import { accSym } from "./theory/spelling.js?v=2026.11.27.8-5cd5a12";
-import { setLockKey } from "./ui/keychip.js?v=2026.11.27.8-5cd5a12";
-import { updateSymbol } from "./ui/nowbox.js?v=2026.11.27.8-5cd5a12";
-import { STRIP_ICONS, prettyAcc, wireStripTap } from "./ui/strip.js?v=2026.11.27.8-5cd5a12";
+import { unlock } from "./audio/unlock.js?v=2026.11.27.9-d1fa72e";
+import { activeKey, defaultKeyName, keyRootName } from "./keys.js?v=2026.11.27.9-d1fa72e";
+import { magicHome } from "./songs/magic.js?v=2026.11.27.9-d1fa72e";
+import { magic, prog } from "./songs/playback.js?v=2026.11.27.9-d1fa72e";
+import { state, scheduleSave } from "./state.js?v=2026.11.27.9-d1fa72e";
+import { wrap12 } from "./theory/quality.js?v=2026.11.27.9-d1fa72e";
+import { accSym } from "./theory/spelling.js?v=2026.11.27.9-d1fa72e";
+import { setLockKey } from "./ui/keychip.js?v=2026.11.27.9-d1fa72e";
+import { updateSymbol } from "./ui/nowbox.js?v=2026.11.27.9-d1fa72e";
+import { STRIP_ICONS, prettyAcc, wireStripTap } from "./ui/strip.js?v=2026.11.27.9-d1fa72e";
 // v70: Kids strip = ONE big basic triad chip: the chord now current in the walk / loop
 // (or the home triad before anything plays). The full board is still built underneath
 // (hidden) so the progression, badges logic and magic Next pool are exactly as before.

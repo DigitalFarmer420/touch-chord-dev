@@ -1,15 +1,15 @@
 // Next-chord marks: lookahead, next hint arrow, Kids gold pad / key.
-import { paintKidChip } from "../kids.js?v=2026.11.27.8-5cd5a12";
-import { magicTarget, magicQueue, magicAdvance } from "../songs/magic.js?v=2026.11.27.8-5cd5a12";
-import { magic, setItemState, prog, PROG_TEST, progPlayStart } from "../songs/playback.js?v=2026.11.27.8-5cd5a12";
-import { upSelected, upNextStep } from "../songs/song.js?v=2026.11.27.8-5cd5a12";
-import { state, padsEl } from "../state.js?v=2026.11.27.8-5cd5a12";
-import { wrap12 } from "../theory/quality.js?v=2026.11.27.8-5cd5a12";
-import { kbUpdate, kidsSoloSpec } from "./keyboard.js?v=2026.11.27.8-5cd5a12";
-import { paintKidsLyr } from "./lyrics.js?v=2026.11.27.8-5cd5a12";
-import { computeSpec, highlightMidisFromSpec } from "./pads.js?v=2026.11.27.8-5cd5a12";
-import { kidsTapPulse, kidsTapLog } from "./pulse.js?v=2026.11.27.8-5cd5a12";
-import { paintSongBar } from "./songbar.js?v=2026.11.27.8-5cd5a12";
+import { paintKidChip } from "../kids.js?v=2026.11.27.9-d1fa72e";
+import { magicTarget, magicQueue, magicAdvance } from "../songs/magic.js?v=2026.11.27.9-d1fa72e";
+import { magic, setItemState, prog, PROG_TEST, progPlayStart } from "../songs/playback.js?v=2026.11.27.9-d1fa72e";
+import { upSelected, upNextStep } from "../songs/song.js?v=2026.11.27.9-d1fa72e";
+import { state, padsEl } from "../state.js?v=2026.11.27.9-d1fa72e";
+import { wrap12 } from "../theory/quality.js?v=2026.11.27.9-d1fa72e";
+import { kbUpdate, kidsSoloSpec } from "./keyboard.js?v=2026.11.27.9-d1fa72e";
+import { paintKidsLyr } from "./lyrics.js?v=2026.11.27.9-d1fa72e";
+import { computeSpec, highlightMidisFromSpec } from "./pads.js?v=2026.11.27.9-d1fa72e";
+import { kidsTapPulse, kidsTapLog } from "./pulse.js?v=2026.11.27.9-d1fa72e";
+import { paintSongBar } from "./songbar.js?v=2026.11.27.9-d1fa72e";
 // v99: full mode (not Kids, not Simple, not an uploaded song, which has its own next-chord outline):
 // mark the grid cell of the chord Play would sound right now. Stopped: Play starts at step 1. Playing: the
 // step after the lit one (none in the random part after one pass). No mark when that step has no grid

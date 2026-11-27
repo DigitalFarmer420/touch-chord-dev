@@ -1,6 +1,6 @@
 // Tap flashes (Kids gold tap, full-mode tap pulse).
-import { PROG_TEST } from "../songs/playback.js?v=2026.11.27.8-5cd5a12";
-import { state } from "../state.js?v=2026.11.27.8-5cd5a12";
+import { PROG_TEST } from "../songs/playback.js?v=2026.11.27.9-d1fa72e";
+import { state } from "../state.js?v=2026.11.27.9-d1fa72e";
 export function kidsTapPulse(el) {
   if (!el) return;
   el.classList.remove("kgtap");

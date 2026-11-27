@@ -1,15 +1,15 @@
 // Upload song dialog: prompt copy, paste, check, load, library list.
-import { unlock } from "../audio/unlock.js?v=2026.11.27.8-5cd5a12";
-import { namePc, keyRootName } from "../keys.js?v=2026.11.27.8-5cd5a12";
-import { upSave, libGet, paintLib, libEntryToU, upRestoreSel, libOpen, libSetVer, libDelete, libConfirm } from "../songs/library.js?v=2026.11.27.8-5cd5a12";
-import { progBadge } from "../songs/magic.js?v=2026.11.27.8-5cd5a12";
-import { progRedecorate } from "../songs/playback.js?v=2026.11.27.8-5cd5a12";
-import { upInList, paintUpNext, upSelected, upKeyApply, upKeyNow, upTr, upLiveKeyObj, upT, upA, upSetLock, upPlaceLock, upSelect, upEsc, upStepOf, upCurStep, upPickAlt, upLoadOne } from "../songs/song.js?v=2026.11.27.8-5cd5a12";
-import { validateSong, LAYER_NAMES } from "../songs/validate.js?v=2026.11.27.8-5cd5a12";
-import { UP_PROMPT, UP_ARTIST_MAX, UP_SKIP_MAX, upListSchema13Text, upEv, upSym, upFlagged, upFlagList, upSecName, upLoadBegin, upLoadCheck, upLoadCommit } from "../songs/upload.js?v=2026.11.27.8-5cd5a12";
-import { state, shared } from "../state.js?v=2026.11.27.8-5cd5a12";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.8-5cd5a12";
-import { paintUploadActive, upLyricHtml } from "./songbar.js?v=2026.11.27.8-5cd5a12";
+import { unlock } from "../audio/unlock.js?v=2026.11.27.9-d1fa72e";
+import { namePc, keyRootName } from "../keys.js?v=2026.11.27.9-d1fa72e";
+import { upSave, libGet, paintLib, libEntryToU, upRestoreSel, libOpen, libSetVer, libDelete, libConfirm } from "../songs/library.js?v=2026.11.27.9-d1fa72e";
+import { progBadge } from "../songs/magic.js?v=2026.11.27.9-d1fa72e";
+import { progRedecorate } from "../songs/playback.js?v=2026.11.27.9-d1fa72e";
+import { upInList, paintUpNext, upSelected, upKeyApply, upKeyNow, upTr, upLiveKeyObj, upT, upA, upSetLock, upPlaceLock, upSelect, upEsc, upStepOf, upCurStep, upPickAlt, upLoadOne } from "../songs/song.js?v=2026.11.27.9-d1fa72e";
+import { validateSong, LAYER_NAMES } from "../songs/validate.js?v=2026.11.27.9-d1fa72e";
+import { UP_PROMPT, UP_ARTIST_MAX, UP_SKIP_MAX, upListSchema13Text, upEv, upSym, upFlagged, upFlagList, upSecName, upLoadBegin, upLoadCheck, upLoadCommit } from "../songs/upload.js?v=2026.11.27.9-d1fa72e";
+import { state, shared } from "../state.js?v=2026.11.27.9-d1fa72e";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.9-d1fa72e";
+import { paintUploadActive, upLyricHtml } from "./songbar.js?v=2026.11.27.9-d1fa72e";
 // v88: the empty-state hint shortens once both title and artist are filled in (live on input)
 // v89: "ready" = the Artist box is filled (an empty title asks for songs by the artist)
 const UP_EMPTY_FULL = "No song yet. Fill in the artist, and a song title if you like. Tap Copy for AI, paste it into any AI, then paste its answer and tap Load.";

@@ -1,11 +1,11 @@
 // Loaded song: the chord grid keeps today's spots. Song chords stay; the rest are hidden
 // (the space stays). Jam, when on, fills up to 6 ranked extras into empty cells.
 // Kids is not touched.
-import { prog } from "../songs/playback.js?v=2026.11.27.8-5cd5a12";
-import { jamRank, takeJam, songChordList, sameSongChord, chordFamily, songGridOn } from "../songs/jam.js?v=2026.11.27.8-5cd5a12";
-import { upSelected } from "../songs/song.js?v=2026.11.27.8-5cd5a12";
-import { state, shared, scheduleSave } from "../state.js?v=2026.11.27.8-5cd5a12";
-import { STRIP_QUAL, styleDegreeQual, wireStripTap, prettyAcc } from "./strip.js?v=2026.11.27.8-5cd5a12";
+import { prog } from "../songs/playback.js?v=2026.11.27.9-d1fa72e";
+import { jamRank, takeJam, songChordList, sameSongChord, chordFamily, songGridOn } from "../songs/jam.js?v=2026.11.27.9-d1fa72e";
+import { upSelected } from "../songs/song.js?v=2026.11.27.9-d1fa72e";
+import { state, shared, scheduleSave } from "../state.js?v=2026.11.27.9-d1fa72e";
+import { STRIP_QUAL, styleDegreeQual, wireStripTap, prettyAcc } from "./strip.js?v=2026.11.27.9-d1fa72e";
 
 var ROWN = { bright: "b", happy: "h", sad: "s", tension: "t" };
 
