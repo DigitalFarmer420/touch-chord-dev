@@ -1,16 +1,16 @@
 // Upload: AI prompt text, schema, answer parsing and validation, load flow.
-import { keyDegrees, SPELL_LI } from "../keys.js?v=2026.11.27.13-3c1015b";
-import { upSave, LIB_MAX, libKey, libFind, libId, libWrite, paintLib } from "./library.js?v=2026.11.27.13-3c1015b";
-import { progStop, progSet } from "./playback.js?v=2026.11.27.13-3c1015b";
-import { upSelected, upKeyApply, upSelect, upStoreCopy, upLoadOne } from "./song.js?v=2026.11.27.13-3c1015b";
-import { state, shared } from "../state.js?v=2026.11.27.13-3c1015b";
-import { Theory } from "../theory/index.js?v=2026.11.27.13-3c1015b";
-import { wrap12 } from "../theory/quality.js?v=2026.11.27.13-3c1015b";
-import { repairJson, tidyChord, is13, from13 } from "./normalize.js?v=2026.11.27.13-3c1015b";
-import { normalizeAiPaste, normalizeAiVersion } from "./aipaste.js?v=2026.11.27.13-3c1015b";
-import { upFullSecs } from "./fullchart.js?v=2026.11.27.13-3c1015b";
-import { computeSpec } from "../ui/pads.js?v=2026.11.27.13-3c1015b";
-import { paintSuggestions } from "../ui/strip.js?v=2026.11.27.13-3c1015b";
+import { keyDegrees, SPELL_LI } from "../keys.js?v=2026.11.27.14-4db075a";
+import { upSave, LIB_MAX, libKey, libFind, libId, libWrite, paintLib } from "./library.js?v=2026.11.27.14-4db075a";
+import { progStop, progSet } from "./playback.js?v=2026.11.27.14-4db075a";
+import { upSelected, upKeyApply, upSelect, upStoreCopy, upLoadOne } from "./song.js?v=2026.11.27.14-4db075a";
+import { state, shared } from "../state.js?v=2026.11.27.14-4db075a";
+import { Theory } from "../theory/index.js?v=2026.11.27.14-4db075a";
+import { wrap12 } from "../theory/quality.js?v=2026.11.27.14-4db075a";
+import { repairJson, tidyChord, is13, from13 } from "./normalize.js?v=2026.11.27.14-4db075a";
+import { normalizeAiPaste, normalizeAiVersion } from "./aipaste.js?v=2026.11.27.14-4db075a";
+import { upFullSecs } from "./fullchart.js?v=2026.11.27.14-4db075a";
+import { computeSpec } from "../ui/pads.js?v=2026.11.27.14-4db075a";
+import { paintSuggestions } from "../ui/strip.js?v=2026.11.27.14-4db075a";
 
 // ===== Song Upload (full mode only) =====
 // Contract: contract/song-contract.schema.json (embedded below as #songSchemaJson, copied to the

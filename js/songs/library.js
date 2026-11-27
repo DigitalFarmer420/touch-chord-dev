@@ -1,11 +1,11 @@
 // My songs library (touchChord.library.v1): storage, open, versions, delete, list.
-import { progStop } from "./playback.js?v=2026.11.27.13-3c1015b";
-import { upSelected, upKeyApply, upKeyNow, upSelect, upEsc } from "./song.js?v=2026.11.27.13-3c1015b";
-import { UP_STORE, upCheck, upBuild, upRemove } from "./upload.js?v=2026.11.27.13-3c1015b";
-import { state, shared } from "../state.js?v=2026.11.27.13-3c1015b";
-import { computeSpec } from "../ui/pads.js?v=2026.11.27.13-3c1015b";
-import { paintSongBar } from "../ui/songbar.js?v=2026.11.27.13-3c1015b";
-import { paintSuggestions } from "../ui/strip.js?v=2026.11.27.13-3c1015b";
+import { progStop } from "./playback.js?v=2026.11.27.14-4db075a";
+import { upSelected, upKeyApply, upKeyNow, upSelect, upEsc } from "./song.js?v=2026.11.27.14-4db075a";
+import { UP_STORE, upCheck, upBuild, upRemove } from "./upload.js?v=2026.11.27.14-4db075a";
+import { state, shared } from "../state.js?v=2026.11.27.14-4db075a";
+import { computeSpec } from "../ui/pads.js?v=2026.11.27.14-4db075a";
+import { paintSongBar } from "../ui/songbar.js?v=2026.11.27.14-4db075a";
+import { paintSuggestions } from "../ui/strip.js?v=2026.11.27.14-4db075a";
 // v77: My songs. touchChord.library.v1 = { v: 1, active: id|null, sel, songs: [{ id, title, artist, added,
 // song: <raw JSON>, choice, reviewed, locked, liveKey }] }, max 50. U is the active song (or null).
 // Saving never fails silently (upSaveErr in the panel); a full library never evicts.

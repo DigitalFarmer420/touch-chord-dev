@@ -1,15 +1,15 @@
 // Next-chord marks: lookahead, next hint arrow, Kids gold pad / key.
-import { paintKidChip } from "../kids.js?v=2026.11.27.13-3c1015b";
-import { magicTarget, magicQueue, magicAdvance } from "../songs/magic.js?v=2026.11.27.13-3c1015b";
-import { magic, setItemState, prog, PROG_TEST, progPlayStart } from "../songs/playback.js?v=2026.11.27.13-3c1015b";
-import { upSelected, upNextStep } from "../songs/song.js?v=2026.11.27.13-3c1015b";
-import { state, padsEl } from "../state.js?v=2026.11.27.13-3c1015b";
-import { wrap12 } from "../theory/quality.js?v=2026.11.27.13-3c1015b";
-import { kbUpdate, kidsSoloSpec } from "./keyboard.js?v=2026.11.27.13-3c1015b";
-import { paintKidsLyr } from "./lyrics.js?v=2026.11.27.13-3c1015b";
-import { computeSpec, highlightMidisFromSpec } from "./pads.js?v=2026.11.27.13-3c1015b";
-import { kidsTapPulse, kidsTapLog } from "./pulse.js?v=2026.11.27.13-3c1015b";
-import { paintSongBar } from "./songbar.js?v=2026.11.27.13-3c1015b";
+import { paintKidChip } from "../kids.js?v=2026.11.27.14-4db075a";
+import { magicTarget, magicQueue, magicAdvance } from "../songs/magic.js?v=2026.11.27.14-4db075a";
+import { magic, setItemState, prog, PROG_TEST, progPlayStart } from "../songs/playback.js?v=2026.11.27.14-4db075a";
+import { upSelected, upNextStep } from "../songs/song.js?v=2026.11.27.14-4db075a";
+import { state, padsEl } from "../state.js?v=2026.11.27.14-4db075a";
+import { wrap12 } from "../theory/quality.js?v=2026.11.27.14-4db075a";
+import { kbUpdate, kidsSoloSpec } from "./keyboard.js?v=2026.11.27.14-4db075a";
+import { paintKidsLyr } from "./lyrics.js?v=2026.11.27.14-4db075a";
+import { computeSpec, highlightMidisFromSpec } from "./pads.js?v=2026.11.27.14-4db075a";
+import { kidsTapPulse, kidsTapLog } from "./pulse.js?v=2026.11.27.14-4db075a";
+import { paintSongBar } from "./songbar.js?v=2026.11.27.14-4db075a";
 // v99: full mode (not Kids, not Simple, not an uploaded song, which has its own next-chord outline):
 // mark the grid cell of the chord Play would sound right now. Stopped: Play starts at step 1. Playing: the
 // step after the lit one (none in the random part after one pass). No mark when that step has no grid
@@ -143,7 +143,10 @@ export function nextHintSpec(item) {
   return spec;
 }
 function clearNextHintDom() {
-  Array.prototype.forEach.call(document.querySelectorAll(".nx, .nx-root"), function (n) { n.classList.remove("nx", "nx-root"); });
+  Array.prototype.forEach.call(document.querySelectorAll(".nx, .nx-root"), function (n) {
+    if (n.classList && n.classList.contains("gtr-card")) return;   // the guitar card's slot is not this hint
+    n.classList.remove("nx", "nx-root");
+  });
   var a = document.getElementById("nxArrow");
   if (a) a.hidden = true;
 }
