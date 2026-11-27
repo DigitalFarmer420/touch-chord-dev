@@ -1,5 +1,5 @@
 // Scale degrees, roman numerals, degree chords.
-import { spellRoot, spellInterval } from "./spelling.js?v=2026.11.24.1-a97dd53";
+import { spellRoot, spellInterval } from "./spelling.js?v=2026.11.27.2-d3f3868";
 
 var DEGREE_STEPS = {
   0: 0,

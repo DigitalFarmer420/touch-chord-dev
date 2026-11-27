@@ -1,15 +1,15 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=2026.11.24.1-a97dd53";
-import { syncKeySel } from "./keys.js?v=2026.11.24.1-a97dd53";
-import { setBpm } from "./loop.js?v=2026.11.24.1-a97dd53";
-import { VOICINGS, state, shared } from "./state.js?v=2026.11.24.1-a97dd53";
-import { Theory } from "./theory/index.js?v=2026.11.24.1-a97dd53";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.24.1-a97dd53";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.24.1-a97dd53";
-import { paintSimple } from "./ui/layout.js?v=2026.11.24.1-a97dd53";
-import { setKeyModeState } from "./ui/palette.js?v=2026.11.24.1-a97dd53";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.24.1-a97dd53";
-import { lookApplyNow } from "./ui/look.js?v=2026.11.24.1-a97dd53";
+import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.2-d3f3868";
+import { syncKeySel } from "./keys.js?v=2026.11.27.2-d3f3868";
+import { setBpm } from "./loop.js?v=2026.11.27.2-d3f3868";
+import { VOICINGS, state, shared } from "./state.js?v=2026.11.27.2-d3f3868";
+import { Theory } from "./theory/index.js?v=2026.11.27.2-d3f3868";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.27.2-d3f3868";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.27.2-d3f3868";
+import { paintSimple } from "./ui/layout.js?v=2026.11.27.2-d3f3868";
+import { setKeyModeState } from "./ui/palette.js?v=2026.11.27.2-d3f3868";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.27.2-d3f3868";
+import { lookApplyNow } from "./ui/look.js?v=2026.11.27.2-d3f3868";
 
 // N20 PR-A (Simple phone portrait): the style chips sit on one scrolling line. Scroll the picked chip fully into
 // view, clear of the 20 px right fade, after settings load, on a style pick, on resize / rotation and on entering
@@ -61,6 +61,7 @@ export function applySettings(s) {
   paintProgNumsBtn();
   state.playAlong = s.playAlong !== false;   // v108
   state.paHints = s.paHints !== false;   // v112
+  state.jam = !!s.jam;
   state.expert = s.expert !== false;   // Kids redesign: Simple (Kids view) / Expert
   state.theme = s.theme === "lamp" || s.theme === "day" ? s.theme : "auto";   // rd6: + Auto (kids/view.js applies the look)
   state.kidsSong = s.kidsSong || null;
