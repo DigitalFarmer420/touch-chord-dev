@@ -2,18 +2,18 @@
 // (computeSpec / kbPlace), finger tracking, spec from a finger, sounding / re-sounding a finger, release / lift,
 // the held-chord refresh and the Kids pointer set. Any view (the grown-up keyboard in pads.js, the Kids piano)
 // calls soundFinger(pointerId, keyOf(...)) / liftFinger(pointerId), so sound and timing are the same everywhere.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.2-d3f3868";
-import { keyRootSpell, modeKey, activeKey, keyDegrees, maybeLockKey } from "../keys.js?v=2026.11.27.2-d3f3868";
-import { finalizeOne, armPending } from "../loop.js?v=2026.11.27.2-d3f3868";
-import { setItemState } from "../songs/playback.js?v=2026.11.27.2-d3f3868";
-import { state, loop, fingers, shared } from "../state.js?v=2026.11.27.2-d3f3868";
-import { Theory } from "../theory/index.js?v=2026.11.27.2-d3f3868";
-import { hasDoubleAcc, plainToneName, enharmonicSpell } from "../theory/names.js?v=2026.11.27.2-d3f3868";
-import { wrap12 } from "../theory/quality.js?v=2026.11.27.2-d3f3868";
-import { kbFullMode, kbFullRange, kbWindowMode, kbKeyLayout, kidsTonic, kbChord, kbUpdate, kbScheduleReset } from "./keyboard.js?v=2026.11.27.2-d3f3868";
-import { keyTapMidis, chipRootMidi, chipMidis, keyTapType } from "./kbmath.js?v=2026.11.27.2-d3f3868";
-import { clearStripExt, clearSuggestPreview } from "./strip.js?v=2026.11.27.2-d3f3868";
-import { sustainActive, poolFingerGroup } from "./sustain.js?v=2026.11.27.2-d3f3868";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.3-2218740";
+import { keyRootSpell, modeKey, activeKey, keyDegrees, maybeLockKey } from "../keys.js?v=2026.11.27.3-2218740";
+import { finalizeOne, armPending } from "../loop.js?v=2026.11.27.3-2218740";
+import { setItemState } from "../songs/playback.js?v=2026.11.27.3-2218740";
+import { state, loop, fingers, shared } from "../state.js?v=2026.11.27.3-2218740";
+import { Theory } from "../theory/index.js?v=2026.11.27.3-2218740";
+import { hasDoubleAcc, plainToneName, enharmonicSpell } from "../theory/names.js?v=2026.11.27.3-2218740";
+import { wrap12 } from "../theory/quality.js?v=2026.11.27.3-2218740";
+import { kbFullMode, kbFullRange, kbWindowMode, kbKeyLayout, kidsTonic, kbChord, kbUpdate, kbScheduleReset } from "./keyboard.js?v=2026.11.27.3-2218740";
+import { keyTapMidis, chipRootMidi, chipMidis, keyTapType } from "./kbmath.js?v=2026.11.27.3-2218740";
+import { clearStripExt, clearSuggestPreview } from "./strip.js?v=2026.11.27.3-2218740";
+import { sustainActive, poolFingerGroup } from "./sustain.js?v=2026.11.27.3-2218740";
 
 // The touched key as plain data (from a key element's data-* and its playable state), so any view can sound it.
 export function keyOf(id, pc, midi, degree, borrow, playable) {
