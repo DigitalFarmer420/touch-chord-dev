@@ -1,6 +1,6 @@
 // iOS audio unlock: silent audio loop, playback session, first-tap unlock.
-import { api as ChordAudio } from "./index.js?v=2026.11.27.10-2e424f6";
-import { shared } from "../state.js?v=2026.11.27.10-2e424f6";
+import { api as ChordAudio } from "./index.js?v=2026.11.27.11-9093ffe";
+import { shared } from "../state.js?v=2026.11.27.11-9093ffe";
 
 // ---- iOS ring/silent switch bypass ----
 // iOS 17+: navigator.audioSession.type = "playback". Older iOS: a looping,

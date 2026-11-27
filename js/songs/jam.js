@@ -1,9 +1,9 @@
 // Jam extras: the chords offered beside a loaded song. Pure (no DOM).
 // A later idea, not built here: context-aware "best next moves" from the chord that is sounding.
-import { keyRootSpell } from "../keys.js?v=2026.11.27.10-2e424f6";
-import { scaleDegrees } from "../theory/keys.js?v=2026.11.27.10-2e424f6";
-import { wrap12, blankExt } from "../theory/quality.js?v=2026.11.27.10-2e424f6";
-import { spellRoot, noteName } from "../theory/spelling.js?v=2026.11.27.10-2e424f6";
+import { keyRootSpell } from "../keys.js?v=2026.11.27.11-9093ffe";
+import { scaleDegrees } from "../theory/keys.js?v=2026.11.27.11-9093ffe";
+import { wrap12, blankExt } from "../theory/quality.js?v=2026.11.27.11-9093ffe";
+import { spellRoot, noteName } from "../theory/spelling.js?v=2026.11.27.11-9093ffe";
 
 export const JAM_CAP = 6;
 var EXT_KEYS = ["six", "min7", "maj7", "nine", "sus2", "flat9", "sharp9", "thirteen", "over", "sharp5", "flat5"];
