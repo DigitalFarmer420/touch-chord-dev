@@ -1,19 +1,19 @@
 // Expert Guitar tab. Draws the resolver's grips in the keyboard area and strums
 // them through ChordAudio. Kids, Simple, and the Piano tab do not use this panel.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.22-d4ac642";
-import { unlock } from "../audio/unlock.js?v=2026.11.27.22-d4ac642";
-import { activeKey } from "../keys.js?v=2026.11.27.22-d4ac642";
-import { prog, magic } from "../songs/playback.js?v=2026.11.27.22-d4ac642";
-import { guitar as guitarProfile } from "../instruments/profiles.js?v=2026.11.27.22-d4ac642";
-import { resolveVoicings } from "../instruments/resolve.js?v=2026.11.27.22-d4ac642";
-import { state } from "../state.js?v=2026.11.27.22-d4ac642";
-import { Theory } from "../theory/index.js?v=2026.11.27.22-d4ac642";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.22-d4ac642";
-import { computeSpec } from "./touch.js?v=2026.11.27.22-d4ac642";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.23-864b299";
+import { unlock } from "../audio/unlock.js?v=2026.11.27.23-864b299";
+import { activeKey } from "../keys.js?v=2026.11.27.23-864b299";
+import { prog, magic } from "../songs/playback.js?v=2026.11.27.23-864b299";
+import { guitar as guitarProfile } from "../instruments/profiles.js?v=2026.11.27.23-864b299";
+import { resolveVoicings } from "../instruments/resolve.js?v=2026.11.27.23-864b299";
+import { state } from "../state.js?v=2026.11.27.23-864b299";
+import { Theory } from "../theory/index.js?v=2026.11.27.23-864b299";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.23-864b299";
+import { computeSpec } from "./touch.js?v=2026.11.27.23-864b299";
 import {
   GTR_TAB_KEY, readGtrTab, gtrTabReduce, cardSlots, layoutOf,
   chordSig, chordDisplayName, voicingLabel, voicingFret, nextVoicingSize, cycleIndex, fretSlide, diagramModel, diagramFrame, fretRows, barreFinger, barreBox
-} from "./gtrmath.js?v=2026.11.27.22-d4ac642";
+} from "./gtrmath.js?v=2026.11.27.23-864b299";
 
 var TAB_LABEL = { now: "NOW", next: "NEXT", third: "3RD", fourth: "4TH" };
 var pick = {};
