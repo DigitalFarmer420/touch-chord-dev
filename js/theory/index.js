@@ -1,8 +1,8 @@
 // The Theory object (window.Theory) built from the theory modules.
-import { normalizeExt, chordIntervals, tones, chordSymbol, bassMidi, buildChord } from "./chords.js?v=2026.11.27.18-39ade9c";
-import { scaleDegrees, degreeChord } from "./keys.js?v=2026.11.27.18-39ade9c";
-import { spellRoot, noteName, spellInterval, chordToneNames, NOTE_NAMES } from "./spelling.js?v=2026.11.27.18-39ade9c";
-import { VOICINGS, voicedMidis, pitchClasses } from "./voicing.js?v=2026.11.27.18-39ade9c";
+import { normalizeExt, chordIntervals, tones, chordSymbol, bassMidi, buildChord } from "./chords.js?v=2026.11.27.19-7c44416";
+import { scaleDegrees, degreeChord } from "./keys.js?v=2026.11.27.19-7c44416";
+import { spellRoot, noteName, spellInterval, chordToneNames, NOTE_NAMES } from "./spelling.js?v=2026.11.27.19-7c44416";
+import { VOICINGS, voicedMidis, pitchClasses } from "./voicing.js?v=2026.11.27.19-7c44416";
 
 var Theory = {
   VOICINGS: VOICINGS,
