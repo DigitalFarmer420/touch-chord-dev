@@ -1,19 +1,19 @@
 // Expert Guitar tab. Draws the resolver's grips in the keyboard area and strums
 // them through ChordAudio. Kids, Simple, and the Piano tab do not use this panel.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.6-11df0eb";
-import { unlock } from "../audio/unlock.js?v=2026.11.27.6-11df0eb";
-import { activeKey } from "../keys.js?v=2026.11.27.6-11df0eb";
-import { prog, magic } from "../songs/playback.js?v=2026.11.27.6-11df0eb";
-import { guitar as guitarProfile } from "../instruments/profiles.js?v=2026.11.27.6-11df0eb";
-import { resolveVoicings } from "../instruments/resolve.js?v=2026.11.27.6-11df0eb";
-import { state } from "../state.js?v=2026.11.27.6-11df0eb";
-import { Theory } from "../theory/index.js?v=2026.11.27.6-11df0eb";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.6-11df0eb";
-import { computeSpec } from "./touch.js?v=2026.11.27.6-11df0eb";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.7-b1d8dc1";
+import { unlock } from "../audio/unlock.js?v=2026.11.27.7-b1d8dc1";
+import { activeKey } from "../keys.js?v=2026.11.27.7-b1d8dc1";
+import { prog, magic } from "../songs/playback.js?v=2026.11.27.7-b1d8dc1";
+import { guitar as guitarProfile } from "../instruments/profiles.js?v=2026.11.27.7-b1d8dc1";
+import { resolveVoicings } from "../instruments/resolve.js?v=2026.11.27.7-b1d8dc1";
+import { state } from "../state.js?v=2026.11.27.7-b1d8dc1";
+import { Theory } from "../theory/index.js?v=2026.11.27.7-b1d8dc1";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.7-b1d8dc1";
+import { computeSpec } from "./touch.js?v=2026.11.27.7-b1d8dc1";
 import {
   GTR_TAB_KEY, readGtrTab, gtrTabReduce, cardSlots, layoutOf,
-  chordSig, voicingLabel, cycleIndex, fretSlide, diagramModel
-} from "./gtrmath.js?v=2026.11.27.6-11df0eb";
+  chordSig, chordDisplayName, voicingLabel, cycleIndex, fretSlide, diagramModel
+} from "./gtrmath.js?v=2026.11.27.7-b1d8dc1";
 
 var TAB_LABEL = { now: "NOW", next: "NEXT", third: "3RD", fourth: "4TH" };
 var pick = {};
@@ -40,6 +40,8 @@ function sameChord(a, b) {
 }
 function chordName(chord) {
   if (!chord) return "";
+  if (chord.chipLabel != null || chord.qualityLabel) return chordDisplayName(chord);
+  if (chord.symbol) return chordDisplayName(chord);
   var builtChord = Theory.buildChord({
     rootPc: chord.rootPc, type: chord.type || "major", extensions: chord.extensions,
     rootSpell: chord.rootSpell, rootName: chord.rootName

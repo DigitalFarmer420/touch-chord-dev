@@ -11,7 +11,7 @@
 // musician's table. Ukulele keeps a small open list so a later curation is
 // another array, not a change to the resolver.
 
-import { GUITAR_OPEN, GUITAR_MOVABLE } from "./guitar-data.js?v=2026.11.27.6-11df0eb";
+import { GUITAR_OPEN, GUITAR_MOVABLE } from "./guitar-data.js?v=2026.11.27.7-b1d8dc1";
 
 var UKULELE_OPEN = [
   { name: "Open", frets: [0, 0, 0, 3], fingers: [0, 0, 0, 3], barres: [] },

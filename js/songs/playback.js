@@ -1,28 +1,28 @@
 // The progression player: walk, Play song, step state, song key, progSet.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.6-11df0eb";
-import { unlock } from "../audio/unlock.js?v=2026.11.27.6-11df0eb";
-import { activeKey, namePc, keyRootName, setKeySpell } from "../keys.js?v=2026.11.27.6-11df0eb";
-import { stopPlayback } from "../loop.js?v=2026.11.27.6-11df0eb";
-import { KIDS_SONG_KEY } from "./kids-songs.js?v=2026.11.27.6-11df0eb";
-import { upSave } from "./library.js?v=2026.11.27.6-11df0eb";
-import { magicReset, progBadge } from "./magic.js?v=2026.11.27.6-11df0eb";
-import { PROG_BAR, PROGRESSIONS, progList, progSteps, sameChord, progIndexFor } from "./presets.js?v=2026.11.27.6-11df0eb";
-import { progHold, progLockPick } from "./proghold.js?v=2026.11.27.6-11df0eb";
-import { upInList, songTempo, paintUpNext, progLoopBar, upKeyApply, upKeyNow } from "./song.js?v=2026.11.27.6-11df0eb";
-import { state, loop, scheduleSave, shared } from "../state.js?v=2026.11.27.6-11df0eb";
-import { wrap12 } from "../theory/quality.js?v=2026.11.27.6-11df0eb";
-import { paHintHide } from "../ui/hints.js?v=2026.11.27.6-11df0eb";
-import { kbSound, kidsSoloSpec, kbScheduleReset } from "../ui/keyboard.js?v=2026.11.27.6-11df0eb";
-import { paintNextHint, paintProgActive, magicHintClear } from "../ui/next.js?v=2026.11.27.6-11df0eb";
-import { updateSymbol } from "../ui/nowbox.js?v=2026.11.27.6-11df0eb";
-import { computeSpec, renderPads, highlightMidisFromSpec, PERCUSSIVE_SOUNDS, refreshHeld } from "../ui/pads.js?v=2026.11.27.6-11df0eb";
-import { paintProg } from "../ui/progbar.js?v=2026.11.27.6-11df0eb";
-import { fxStepPulse } from "../ui/pulse.js?v=2026.11.27.6-11df0eb";
-import { clearSuggestPreview, STRIP_EXT, PREVIEW_MS, stripKey, applySuggestion, prettyAcc, stripLabel, wireStripTap, paintSuggestions, fitStrip } from "../ui/strip.js?v=2026.11.27.6-11df0eb";
-import { layoutSongGrid } from "../ui/songgrid.js?v=2026.11.27.6-11df0eb";
-import { BADGE_SLOTS, badgeCenter, badgeInset } from "../ui/badgeslots.js?v=2026.11.27.6-11df0eb";
-import { sustainPool } from "../ui/sustain.js?v=2026.11.27.6-11df0eb";
-import { songIdentity, worldIdentity, resumeRule, barOffset, sameSong } from "./transport-policy.js?v=2026.11.27.6-11df0eb";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.7-b1d8dc1";
+import { unlock } from "../audio/unlock.js?v=2026.11.27.7-b1d8dc1";
+import { activeKey, namePc, keyRootName, setKeySpell } from "../keys.js?v=2026.11.27.7-b1d8dc1";
+import { stopPlayback } from "../loop.js?v=2026.11.27.7-b1d8dc1";
+import { KIDS_SONG_KEY } from "./kids-songs.js?v=2026.11.27.7-b1d8dc1";
+import { upSave } from "./library.js?v=2026.11.27.7-b1d8dc1";
+import { magicReset, progBadge } from "./magic.js?v=2026.11.27.7-b1d8dc1";
+import { PROG_BAR, PROGRESSIONS, progList, progSteps, sameChord, progIndexFor } from "./presets.js?v=2026.11.27.7-b1d8dc1";
+import { progHold, progLockPick } from "./proghold.js?v=2026.11.27.7-b1d8dc1";
+import { upInList, songTempo, paintUpNext, progLoopBar, upKeyApply, upKeyNow } from "./song.js?v=2026.11.27.7-b1d8dc1";
+import { state, loop, scheduleSave, shared } from "../state.js?v=2026.11.27.7-b1d8dc1";
+import { wrap12 } from "../theory/quality.js?v=2026.11.27.7-b1d8dc1";
+import { paHintHide } from "../ui/hints.js?v=2026.11.27.7-b1d8dc1";
+import { kbSound, kidsSoloSpec, kbScheduleReset } from "../ui/keyboard.js?v=2026.11.27.7-b1d8dc1";
+import { paintNextHint, paintProgActive, magicHintClear } from "../ui/next.js?v=2026.11.27.7-b1d8dc1";
+import { updateSymbol } from "../ui/nowbox.js?v=2026.11.27.7-b1d8dc1";
+import { computeSpec, renderPads, highlightMidisFromSpec, PERCUSSIVE_SOUNDS, refreshHeld } from "../ui/pads.js?v=2026.11.27.7-b1d8dc1";
+import { paintProg } from "../ui/progbar.js?v=2026.11.27.7-b1d8dc1";
+import { fxStepPulse } from "../ui/pulse.js?v=2026.11.27.7-b1d8dc1";
+import { clearSuggestPreview, STRIP_EXT, PREVIEW_MS, stripKey, applySuggestion, prettyAcc, stripLabel, wireStripTap, paintSuggestions, fitStrip } from "../ui/strip.js?v=2026.11.27.7-b1d8dc1";
+import { layoutSongGrid } from "../ui/songgrid.js?v=2026.11.27.7-b1d8dc1";
+import { BADGE_SLOTS, badgeCenter, badgeInset } from "../ui/badgeslots.js?v=2026.11.27.7-b1d8dc1";
+import { sustainPool } from "../ui/sustain.js?v=2026.11.27.7-b1d8dc1";
+import { songIdentity, worldIdentity, resumeRule, barOffset, sameSong } from "./transport-policy.js?v=2026.11.27.7-b1d8dc1";
 
 export const prog = { style: null, mode: null, keySig: null, key: null, idx: 0, list: [], steps: [], targets: [], badges: [], badgeOverflow: [], badgeReport: null,
   cur: -1, playing: false, paused: false, pauseSnap: null, walkHome: null, playTapAt: 0, timer: 0, si: 0, nextT: 0, groups: [], gid: 0, uiT: [], flashT: 0, log: [], tmp: 0, unplaced: 0, model: null,
@@ -645,6 +645,11 @@ export function setItemState(item) {
   state.rootPc = item.rootPc;
   state.type = item.type;
   state.stripSpell = item.rootSpell ? { pc: item.rootPc, type: item.type, rs: item.rootSpell, keep: !!item.keepSpell } : null;
+  // The name the song or pad wrote (Cdim7), so the Now box and Guitar cards
+  // do not rename it to the shape the theory layer would print (Cdim6).
+  state.writtenChord = (state.style !== "kids" && item && (item.chipLabel != null || item.qualityLabel))
+    ? { rootPc: item.rootPc, type: item.type, ext: item.extensions || {}, name: stripLabel(item) }
+    : null;
   if (item.degree) {
     state.forceChord = null;
     if (state.keyMode) state.degree = item.degree;
