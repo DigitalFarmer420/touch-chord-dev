@@ -1,11 +1,11 @@
 // Phrase loop: record / play / clear, the scheduler and BPM.
-import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.3-2218740";
-import { unlock } from "./audio/unlock.js?v=2026.11.27.3-2218740";
-import { progStop, progPlay, prog } from "./songs/playback.js?v=2026.11.27.3-2218740";
-import { state, loop, fingers, phaseEl } from "./state.js?v=2026.11.27.3-2218740";
-import { updateSymbol } from "./ui/nowbox.js?v=2026.11.27.3-2218740";
-import { specFromFinger } from "./ui/pads.js?v=2026.11.27.3-2218740";
-import { sustainPool, poolCount } from "./ui/sustain.js?v=2026.11.27.3-2218740";
+import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.4-20df938";
+import { unlock } from "./audio/unlock.js?v=2026.11.27.4-20df938";
+import { progStop, progPlay, prog } from "./songs/playback.js?v=2026.11.27.4-20df938";
+import { state, loop, fingers, phaseEl } from "./state.js?v=2026.11.27.4-20df938";
+import { updateSymbol } from "./ui/nowbox.js?v=2026.11.27.4-20df938";
+import { specFromFinger } from "./ui/pads.js?v=2026.11.27.4-20df938";
+import { sustainPool, poolCount } from "./ui/sustain.js?v=2026.11.27.4-20df938";
 
 function stepAt(time) {
   var s = 60 / loop.bpm / 4;
