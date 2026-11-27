@@ -1,21 +1,21 @@
 // The chord keyboard: layout spec, pads / keys, pointer input, haptics, drawing. The touch-to-sound path (chord spec,
 // sounding fingers, release / lift, held refresh) lives in touch.js (no DOM); this file draws the keys and feeds it.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.23-864b299";
-import { unlock } from "../audio/unlock.js?v=2026.11.27.23-864b299";
-import { modeKey, keyDegrees, activeKey, keyNoteName } from "../keys.js?v=2026.11.27.23-864b299";
-import { paTwin, playAlongKey, playAlongGo } from "../songs/playalong.js?v=2026.11.27.23-864b299";
-import { magic } from "../songs/playback.js?v=2026.11.27.23-864b299";
-import { state, fingers, padsEl, shared } from "../state.js?v=2026.11.27.23-864b299";
-import { Theory } from "../theory/index.js?v=2026.11.27.23-864b299";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.23-864b299";
-import { playAlongKeyOk, paHintMiss } from "./hints.js?v=2026.11.27.23-864b299";
-import { kbFullRange, kbWindowMode, kbKeyLayout, kbBorrowKey, kbChord, kbWantLow } from "./keyboard.js?v=2026.11.27.23-864b299";
-import { paintNextHint, kidsGoldKey, kidsGoldGo } from "./next.js?v=2026.11.27.23-864b299";
-import { updateSymbol } from "./nowbox.js?v=2026.11.27.23-864b299";
-import { padPlayable } from "./sustain.js?v=2026.11.27.23-864b299";
-import { keyOf, setTouchView, soundFinger, resoundHeldFinger, releaseFinger, liftFinger, kbKidsPtr, kbKidsUp } from "./touch.js?v=2026.11.27.23-864b299";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.24-b887337";
+import { unlock } from "../audio/unlock.js?v=2026.11.27.24-b887337";
+import { modeKey, keyDegrees, activeKey, keyNoteName } from "../keys.js?v=2026.11.27.24-b887337";
+import { paTwin, playAlongKey, playAlongGo } from "../songs/playalong.js?v=2026.11.27.24-b887337";
+import { magic } from "../songs/playback.js?v=2026.11.27.24-b887337";
+import { state, fingers, padsEl, shared } from "../state.js?v=2026.11.27.24-b887337";
+import { Theory } from "../theory/index.js?v=2026.11.27.24-b887337";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.24-b887337";
+import { playAlongKeyOk, paHintMiss } from "./hints.js?v=2026.11.27.24-b887337";
+import { kbFullRange, kbWindowMode, kbKeyLayout, kbBorrowKey, kbChord, kbWantLow } from "./keyboard.js?v=2026.11.27.24-b887337";
+import { paintNextHint, kidsGoldKey, kidsGoldGo } from "./next.js?v=2026.11.27.24-b887337";
+import { updateSymbol } from "./nowbox.js?v=2026.11.27.24-b887337";
+import { padPlayable } from "./sustain.js?v=2026.11.27.24-b887337";
+import { keyOf, setTouchView, soundFinger, resoundHeldFinger, releaseFinger, liftFinger, kbKidsPtr, kbKidsUp } from "./touch.js?v=2026.11.27.24-b887337";
 // Moved to touch.js in the split; re-exported so every importer of pads.js is unchanged.
-export { computeSpec, specFromFinger, paletteHeld, keyTapQuality, restoreKeyQuality, liftFinger, kbKidsPtr, PERCUSSIVE_SOUNDS, refreshHeld } from "./touch.js?v=2026.11.27.23-864b299";
+export { computeSpec, specFromFinger, paletteHeld, keyTapQuality, restoreKeyQuality, liftFinger, kbKidsPtr, PERCUSSIVE_SOUNDS, refreshHeld } from "./touch.js?v=2026.11.27.24-b887337";
 
 export function eatMove(el) {
   el.addEventListener("touchmove", function (e) { e.preventDefault(); }, { passive: false });

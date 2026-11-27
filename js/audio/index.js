@@ -1,12 +1,14 @@
 // Builds the one ChordAudio api (window.ChordAudio) and its Band.
 // Load every audio part first so all ChordAudio/Band prototype methods exist before the api is built.
-import "./engine.js?v=2026.11.27.23-864b299";
-import "./synths.js?v=2026.11.27.23-864b299";
-import "./effects.js?v=2026.11.27.23-864b299";
-import "./bass.js?v=2026.11.27.23-864b299";
-import "./band.js?v=2026.11.27.23-864b299";
-import { Band } from "./band.js?v=2026.11.27.23-864b299";
-import { ChordAudio } from "./engine.js?v=2026.11.27.23-864b299";
+import "./engine.js?v=2026.11.27.24-b887337";
+import "./synths.js?v=2026.11.27.24-b887337";
+import "./effects.js?v=2026.11.27.24-b887337";
+import "./bass.js?v=2026.11.27.24-b887337";
+import "./band.js?v=2026.11.27.24-b887337";
+import { Band } from "./band.js?v=2026.11.27.24-b887337";
+import { ChordAudio } from "./engine.js?v=2026.11.27.24-b887337";
+import { installGuitarPluck } from "./guitar-pluck.js?v=2026.11.27.24-b887337";
+installGuitarPluck(ChordAudio);
 
 var api = new ChordAudio();
 export { api };
