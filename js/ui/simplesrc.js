@@ -5,10 +5,10 @@
 // N11/N12 (PR #5): like Expert, tapping Progressions only switches the view. The song stays selected (its step and
 // Play are kept) until a progression is picked with the picker arrows. The song's walk position is saved when the
 // picker leaves the song and restored when Song re-selects it, separately from any progression's own state.
-import { sourceInit, sourceReduce } from "../expert/model.js?v=2026.11.27.4-20df938";
-import { placeBadges, prog, progSet, progWalkAt, progWalkTo } from "../songs/playback.js?v=2026.11.27.4-20df938";
-import { upSelected } from "../songs/song.js?v=2026.11.27.4-20df938";
-import { shared, state } from "../state.js?v=2026.11.27.4-20df938";
+import { sourceInit, sourceReduce } from "../expert/model.js?v=2026.11.27.5-6ecfa3b";
+import { placeBadges, prog, progSet, progWalkAt, progWalkTo } from "../songs/playback.js?v=2026.11.27.5-6ecfa3b";
+import { upSelected } from "../songs/song.js?v=2026.11.27.5-6ecfa3b";
+import { shared, state } from "../state.js?v=2026.11.27.5-6ecfa3b";
 
 var src = null, lastSel = false, songWalk = null, after = function () {};
 

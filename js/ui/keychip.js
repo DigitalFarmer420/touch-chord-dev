@@ -1,14 +1,14 @@
 // Key chip / key row (Full mode key picker).
-import { activeKey, keyDegrees, keyMainNames, keyAltNames, namePc, keyRootName, setKeySpell } from "../keys.js?v=2026.11.27.4-20df938";
-import { toggleHelpMenu } from "./helpmenu.js?v=2026.11.27.4-20df938";
-import { paintKidKey } from "../kids.js?v=2026.11.27.4-20df938";
-import { state, scheduleSave, shared } from "../state.js?v=2026.11.27.4-20df938";
-import { Theory } from "../theory/index.js?v=2026.11.27.4-20df938";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.4-20df938";
-import { kidsKeyNow } from "./keyboard.js?v=2026.11.27.4-20df938";
-import { updateSymbol } from "./nowbox.js?v=2026.11.27.4-20df938";
-import { refreshHeld } from "./pads.js?v=2026.11.27.4-20df938";
-import { typeHeld, extStillHeld } from "./palette.js?v=2026.11.27.4-20df938";
+import { activeKey, keyDegrees, keyMainNames, keyAltNames, namePc, keyRootName, setKeySpell } from "../keys.js?v=2026.11.27.5-6ecfa3b";
+import { toggleHelpMenu } from "./helpmenu.js?v=2026.11.27.5-6ecfa3b";
+import { paintKidKey } from "../kids.js?v=2026.11.27.5-6ecfa3b";
+import { state, scheduleSave, shared } from "../state.js?v=2026.11.27.5-6ecfa3b";
+import { Theory } from "../theory/index.js?v=2026.11.27.5-6ecfa3b";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.5-6ecfa3b";
+import { kidsKeyNow } from "./keyboard.js?v=2026.11.27.5-6ecfa3b";
+import { updateSymbol } from "./nowbox.js?v=2026.11.27.5-6ecfa3b";
+import { refreshHeld } from "./pads.js?v=2026.11.27.5-6ecfa3b";
+import { typeHeld, extStillHeld } from "./palette.js?v=2026.11.27.5-6ecfa3b";
 
 export function keyLabel(k) {
   return accSym(keyRootName(k)) + (k.mode === "minor" ? " minor" : " major");

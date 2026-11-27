@@ -1,5 +1,5 @@
 // ChordAudio: AudioContext, master chain, mix / cutoff / reverb / delay / warmth, play / morph / stop chords, voice limit.
-import { makeWarmCurve, makeSoftClip, makeImpulse, makePulse, clamp01 } from "./effects.js?v=2026.11.27.4-20df938";
+import { makeWarmCurve, makeSoftClip, makeImpulse, makePulse, clamp01 } from "./effects.js?v=2026.11.27.5-6ecfa3b";
 var VOICE_CAP = 28;
 var VOICE_HARD_CAP = 72;
 

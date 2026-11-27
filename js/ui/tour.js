@@ -1,6 +1,6 @@
 // The tour (Help > Tour): one short tour per mode, in the v110 spotlight look.
-import { progStop, prog } from "../songs/playback.js?v=2026.11.27.4-20df938";
-import { paHintHide } from "./hints.js?v=2026.11.27.4-20df938";
+import { progStop, prog } from "../songs/playback.js?v=2026.11.27.5-6ecfa3b";
+import { paHintHide } from "./hints.js?v=2026.11.27.5-6ecfa3b";
 
 // v112 first-launch tour, saved as done on Skip / Done (its own storage key: Factory reset keeps it); the "?" menu
 // (Simple / Expert) or Settings > How to & tour (Kids) replays it.
