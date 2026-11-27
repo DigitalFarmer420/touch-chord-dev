@@ -1,22 +1,22 @@
 // The chord table / scale strip: model, chips, taps, preview, fitting.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.5-6ecfa3b";
-import { unlock } from "../audio/unlock.js?v=2026.11.27.5-6ecfa3b";
-import { activeKey, keyDegrees, keyRootName, suggestionKey } from "../keys.js?v=2026.11.27.5-6ecfa3b";
-import { paintKidChip } from "../kids.js?v=2026.11.27.5-6ecfa3b";
-import { paTwin, playAlongGo, playAlongChip } from "../songs/playalong.js?v=2026.11.27.5-6ecfa3b";
-import { setItemState, progSync, progDecorate, placeBadges } from "../songs/playback.js?v=2026.11.27.5-6ecfa3b";
-import { state, fingers, shared } from "../state.js?v=2026.11.27.5-6ecfa3b";
-import { Theory } from "../theory/index.js?v=2026.11.27.5-6ecfa3b";
-import { wrap12, blankExt, mapQuality } from "../theory/quality.js?v=2026.11.27.5-6ecfa3b";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.5-6ecfa3b";
-import { paHintMiss } from "./hints.js?v=2026.11.27.5-6ecfa3b";
-import { kbSound, kidsSoloSpec, kbScheduleReset, kbCancelReset } from "./keyboard.js?v=2026.11.27.5-6ecfa3b";
-import { paintNextHint, paintProgActive, kidsGoldGo, kidsGoldPad } from "./next.js?v=2026.11.27.5-6ecfa3b";
-import { updateSymbol } from "./nowbox.js?v=2026.11.27.5-6ecfa3b";
-import { computeSpec, highlightMidisFromSpec, refreshHeld } from "./pads.js?v=2026.11.27.5-6ecfa3b";
-import { paintProg } from "./progbar.js?v=2026.11.27.5-6ecfa3b";
-import { fxTapPulse } from "./pulse.js?v=2026.11.27.5-6ecfa3b";
-import { sustainPool, sustainActive } from "./sustain.js?v=2026.11.27.5-6ecfa3b";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.6-11df0eb";
+import { unlock } from "../audio/unlock.js?v=2026.11.27.6-11df0eb";
+import { activeKey, keyDegrees, keyRootName, suggestionKey } from "../keys.js?v=2026.11.27.6-11df0eb";
+import { paintKidChip } from "../kids.js?v=2026.11.27.6-11df0eb";
+import { paTwin, playAlongGo, playAlongChip } from "../songs/playalong.js?v=2026.11.27.6-11df0eb";
+import { setItemState, progSync, progDecorate, placeBadges } from "../songs/playback.js?v=2026.11.27.6-11df0eb";
+import { state, fingers, shared } from "../state.js?v=2026.11.27.6-11df0eb";
+import { Theory } from "../theory/index.js?v=2026.11.27.6-11df0eb";
+import { wrap12, blankExt, mapQuality } from "../theory/quality.js?v=2026.11.27.6-11df0eb";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.6-11df0eb";
+import { paHintMiss } from "./hints.js?v=2026.11.27.6-11df0eb";
+import { kbSound, kidsSoloSpec, kbScheduleReset, kbCancelReset } from "./keyboard.js?v=2026.11.27.6-11df0eb";
+import { paintNextHint, paintProgActive, kidsGoldGo, kidsGoldPad } from "./next.js?v=2026.11.27.6-11df0eb";
+import { updateSymbol } from "./nowbox.js?v=2026.11.27.6-11df0eb";
+import { computeSpec, highlightMidisFromSpec, refreshHeld } from "./pads.js?v=2026.11.27.6-11df0eb";
+import { paintProg } from "./progbar.js?v=2026.11.27.6-11df0eb";
+import { fxTapPulse } from "./pulse.js?v=2026.11.27.6-11df0eb";
+import { sustainPool, sustainActive } from "./sustain.js?v=2026.11.27.6-11df0eb";
 const suggestTapAt = 0;   // last touch/pen tap on a Next chip (click de-dupe)
 var suggestSeq;
 
