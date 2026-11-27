@@ -1,14 +1,14 @@
 // Key chip / key row (Full mode key picker).
-import { activeKey, keyDegrees, keyMainNames, keyAltNames, namePc, keyRootName, setKeySpell } from "../keys.js?v=2026.11.27.11-9093ffe";
-import { toggleHelpMenu } from "./helpmenu.js?v=2026.11.27.11-9093ffe";
-import { paintKidKey } from "../kids.js?v=2026.11.27.11-9093ffe";
-import { state, scheduleSave, shared } from "../state.js?v=2026.11.27.11-9093ffe";
-import { Theory } from "../theory/index.js?v=2026.11.27.11-9093ffe";
-import { accSym } from "../theory/spelling.js?v=2026.11.27.11-9093ffe";
-import { kidsKeyNow } from "./keyboard.js?v=2026.11.27.11-9093ffe";
-import { updateSymbol } from "./nowbox.js?v=2026.11.27.11-9093ffe";
-import { refreshHeld } from "./pads.js?v=2026.11.27.11-9093ffe";
-import { typeHeld, extStillHeld } from "./palette.js?v=2026.11.27.11-9093ffe";
+import { activeKey, keyDegrees, keyMainNames, keyAltNames, namePc, keyRootName, setKeySpell, keyNoteName } from "../keys.js?v=2026.11.27.12-2aff33f";
+import { toggleHelpMenu } from "./helpmenu.js?v=2026.11.27.12-2aff33f";
+import { paintKidKey } from "../kids.js?v=2026.11.27.12-2aff33f";
+import { state, scheduleSave, shared } from "../state.js?v=2026.11.27.12-2aff33f";
+import { Theory } from "../theory/index.js?v=2026.11.27.12-2aff33f";
+import { accSym } from "../theory/spelling.js?v=2026.11.27.12-2aff33f";
+import { kidsKeyNow } from "./keyboard.js?v=2026.11.27.12-2aff33f";
+import { updateSymbol } from "./nowbox.js?v=2026.11.27.12-2aff33f";
+import { refreshHeld } from "./pads.js?v=2026.11.27.12-2aff33f";
+import { typeHeld, extStillHeld } from "./palette.js?v=2026.11.27.12-2aff33f";
 
 export function keyLabel(k) {
   return accSym(keyRootName(k)) + (k.mode === "minor" ? " minor" : " major");
@@ -27,7 +27,7 @@ export function paintKeyChip(spec) {
     pd.classList.toggle("nokey", !pd.dataset.borrow && !state.allKeys && !!k && !inKey[Number(pd.dataset.pc)]);   // v111 (K): Kids dims out-of-key keys again with Full Range off
     var nmEl = pd.querySelector(".nm");
     if (nmEl) {
-      var nmT = accSym(spellPc[Number(pd.dataset.pc)] || Theory.NOTE_NAMES[Number(pd.dataset.pc)]);
+      var nmT = accSym(k ? keyNoteName(k, Number(pd.dataset.pc)) : (spellPc[Number(pd.dataset.pc)] || Theory.NOTE_NAMES[Number(pd.dataset.pc)]));
       if (nmEl.textContent !== nmT) nmEl.textContent = nmT;
     }
   });
