@@ -1,6 +1,6 @@
 // Chord intervals, tones, symbols, buildChord, bass note.
-import { mod12, spellRoot, noteName, chordToneNames } from "./spelling.js?v=2026.11.27.20-6e8a151";
-import { voicedMidis, pitchClasses } from "./voicing.js?v=2026.11.27.20-6e8a151";
+import { mod12, spellRoot, noteName, chordToneNames } from "./spelling.js?v=2026.11.27.21-13cf877";
+import { voicedMidis, pitchClasses } from "./voicing.js?v=2026.11.27.21-13cf877";
 
 export function normalizeExt(ext) {
   ext = ext || {};
