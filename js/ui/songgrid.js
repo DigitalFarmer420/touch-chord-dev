@@ -1,11 +1,11 @@
 // Loaded song: the grid shows the chords the song plays. Other style pads are taken
 // out of the layout (they do not hold a cell). Jam, the circle and the dashed extras,
 // is still in this file but off unless JAM_IN_SONG is set true. Kids is not touched.
-import { prog } from "../songs/playback.js?v=2026.11.27.12-2aff33f";
-import { jamRank, takeJam, songChordList, sameSongChord, chordFamily, songGridOn } from "../songs/jam.js?v=2026.11.27.12-2aff33f";
-import { upSelected } from "../songs/song.js?v=2026.11.27.12-2aff33f";
-import { state, shared, scheduleSave } from "../state.js?v=2026.11.27.12-2aff33f";
-import { STRIP_QUAL, styleDegreeQual, wireStripTap, prettyAcc } from "./strip.js?v=2026.11.27.12-2aff33f";
+import { prog } from "../songs/playback.js?v=2026.11.27.13-3c1015b";
+import { jamRank, takeJam, songChordList, sameSongChord, chordFamily, songGridOn } from "../songs/jam.js?v=2026.11.27.13-3c1015b";
+import { upSelected } from "../songs/song.js?v=2026.11.27.13-3c1015b";
+import { state, shared, scheduleSave } from "../state.js?v=2026.11.27.13-3c1015b";
+import { STRIP_QUAL, styleDegreeQual, wireStripTap, prettyAcc } from "./strip.js?v=2026.11.27.13-3c1015b";
 
 var ROWN = { bright: "b", happy: "h", sad: "s", tension: "t" };
 
