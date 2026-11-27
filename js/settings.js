@@ -1,15 +1,15 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.15-1eed011";
-import { syncKeySel } from "./keys.js?v=2026.11.27.15-1eed011";
-import { setBpm } from "./loop.js?v=2026.11.27.15-1eed011";
-import { VOICINGS, state, shared } from "./state.js?v=2026.11.27.15-1eed011";
-import { Theory } from "./theory/index.js?v=2026.11.27.15-1eed011";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.27.15-1eed011";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.27.15-1eed011";
-import { paintSimple } from "./ui/layout.js?v=2026.11.27.15-1eed011";
-import { setKeyModeState } from "./ui/palette.js?v=2026.11.27.15-1eed011";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.27.15-1eed011";
-import { lookApplyNow } from "./ui/look.js?v=2026.11.27.15-1eed011";
+import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.16-d70a1c3";
+import { syncKeySel } from "./keys.js?v=2026.11.27.16-d70a1c3";
+import { setBpm } from "./loop.js?v=2026.11.27.16-d70a1c3";
+import { VOICINGS, state, shared } from "./state.js?v=2026.11.27.16-d70a1c3";
+import { Theory } from "./theory/index.js?v=2026.11.27.16-d70a1c3";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.27.16-d70a1c3";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.27.16-d70a1c3";
+import { paintSimple } from "./ui/layout.js?v=2026.11.27.16-d70a1c3";
+import { setKeyModeState } from "./ui/palette.js?v=2026.11.27.16-d70a1c3";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.27.16-d70a1c3";
+import { lookApplyNow } from "./ui/look.js?v=2026.11.27.16-d70a1c3";
 
 // N20 PR-A (Simple phone portrait): the style chips sit on one scrolling line. Scroll the picked chip fully into
 // view, clear of the 20 px right fade, after settings load, on a style pick, on resize / rotation and on entering

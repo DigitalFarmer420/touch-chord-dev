@@ -1,18 +1,18 @@
 // Simple mode, controls drawer / tabs, size-class changes.
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.15-1eed011";
-import { activeKey } from "../keys.js?v=2026.11.27.15-1eed011";
-import { stopPlayback } from "../loop.js?v=2026.11.27.15-1eed011";
-import { prog, progStop, progWalkAt, progWalkTo } from "../songs/playback.js?v=2026.11.27.15-1eed011";
-import { state, loop, fingers, scheduleSave, shared } from "../state.js?v=2026.11.27.15-1eed011";
-import { magicHintClear } from "./next.js?v=2026.11.27.15-1eed011";
-import { fitNowSymbol } from "./nowbox.js?v=2026.11.27.15-1eed011";
-import { computeSpec, padSpan, octaveSpan, effectiveLayout, renderPads, liftFinger, refreshHeld } from "./pads.js?v=2026.11.27.15-1eed011";
-import { syncPalette, setKeyModeState } from "./palette.js?v=2026.11.27.15-1eed011";
-import { placeProg } from "./progbar.js?v=2026.11.27.15-1eed011";
-import { paintSimpleSrc } from "./simplesrc.js?v=2026.11.27.15-1eed011";
-import { paintSuggestions } from "./strip.js?v=2026.11.27.15-1eed011";
-import { paintSustainBtn, setSustain } from "./sustain.js?v=2026.11.27.15-1eed011";
-import { upPlaceLock } from "../songs/song.js?v=2026.11.27.15-1eed011";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.16-d70a1c3";
+import { activeKey } from "../keys.js?v=2026.11.27.16-d70a1c3";
+import { stopPlayback } from "../loop.js?v=2026.11.27.16-d70a1c3";
+import { prog, progStop, progWalkAt, progWalkTo } from "../songs/playback.js?v=2026.11.27.16-d70a1c3";
+import { state, loop, fingers, scheduleSave, shared } from "../state.js?v=2026.11.27.16-d70a1c3";
+import { magicHintClear } from "./next.js?v=2026.11.27.16-d70a1c3";
+import { fitNowSymbol } from "./nowbox.js?v=2026.11.27.16-d70a1c3";
+import { computeSpec, padSpan, octaveSpan, effectiveLayout, renderPads, liftFinger, refreshHeld } from "./pads.js?v=2026.11.27.16-d70a1c3";
+import { syncPalette, setKeyModeState } from "./palette.js?v=2026.11.27.16-d70a1c3";
+import { placeProg } from "./progbar.js?v=2026.11.27.16-d70a1c3";
+import { paintSimpleSrc } from "./simplesrc.js?v=2026.11.27.16-d70a1c3";
+import { paintSuggestions } from "./strip.js?v=2026.11.27.16-d70a1c3";
+import { paintSustainBtn, setSustain } from "./sustain.js?v=2026.11.27.16-d70a1c3";
+import { upPlaceLock } from "../songs/song.js?v=2026.11.27.16-d70a1c3";
 
 // ---- Simple mode + responsive controls (v20) ----
 export function paintSimple() {
