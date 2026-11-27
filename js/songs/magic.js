@@ -1,16 +1,16 @@
 // Magic Next (one chord per tap).
-import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.16-d70a1c3";
-import { magic, progStop, prog, PROG_TEST, progLockKey, progPauseMoveTo, progWalkFollow } from "./playback.js?v=2026.11.27.16-d70a1c3";
-import { sameChord } from "./presets.js?v=2026.11.27.16-d70a1c3";
-import { progRingSec } from "./song.js?v=2026.11.27.16-d70a1c3";
-import { state, shared } from "../state.js?v=2026.11.27.16-d70a1c3";
-import { wrap12 } from "../theory/quality.js?v=2026.11.27.16-d70a1c3";
-import { paHintAdvanced } from "../ui/hints.js?v=2026.11.27.16-d70a1c3";
-import { paintNextHint, paintProgActive, magicHintClear } from "../ui/next.js?v=2026.11.27.16-d70a1c3";
-import { paintProg } from "../ui/progbar.js?v=2026.11.27.16-d70a1c3";
-import { fxStepPulse } from "../ui/pulse.js?v=2026.11.27.16-d70a1c3";
-import { clearSuggestPreview, applySuggestion, stripLabel } from "../ui/strip.js?v=2026.11.27.16-d70a1c3";
-import { sustainPool } from "../ui/sustain.js?v=2026.11.27.16-d70a1c3";
+import { api as ChordAudio } from "../audio/index.js?v=2026.11.27.17-d5707c5";
+import { magic, progStop, prog, PROG_TEST, progLockKey, progPauseMoveTo, progWalkFollow } from "./playback.js?v=2026.11.27.17-d5707c5";
+import { sameChord } from "./presets.js?v=2026.11.27.17-d5707c5";
+import { progRingSec } from "./song.js?v=2026.11.27.17-d5707c5";
+import { state, shared } from "../state.js?v=2026.11.27.17-d5707c5";
+import { wrap12 } from "../theory/quality.js?v=2026.11.27.17-d5707c5";
+import { paHintAdvanced } from "../ui/hints.js?v=2026.11.27.17-d5707c5";
+import { paintNextHint, paintProgActive, magicHintClear } from "../ui/next.js?v=2026.11.27.17-d5707c5";
+import { paintProg } from "../ui/progbar.js?v=2026.11.27.17-d5707c5";
+import { fxStepPulse } from "../ui/pulse.js?v=2026.11.27.17-d5707c5";
+import { clearSuggestPreview, applySuggestion, stripLabel } from "../ui/strip.js?v=2026.11.27.17-d5707c5";
+import { sustainPool } from "../ui/sustain.js?v=2026.11.27.17-d5707c5";
 // v68: magic Next. Each tap plays ONE chord: the first N taps walk the progression in order
 // (1 bar each at the style's BPM), then each tap is a random chord from the board (never the
 // same twice in a row, weighted toward strong moves), every 4th or 8th one the home chord for

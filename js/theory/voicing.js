@@ -1,6 +1,6 @@
 // Voicings (drop / low / close / high / bright) and voiced MIDI notes.
-import { normalizeExt, chordIntervals } from "./chords.js?v=2026.11.27.16-d70a1c3";
-import { mod12 } from "./spelling.js?v=2026.11.27.16-d70a1c3";
+import { normalizeExt, chordIntervals } from "./chords.js?v=2026.11.27.17-d5707c5";
+import { mod12 } from "./spelling.js?v=2026.11.27.17-d5707c5";
 
 var VOICINGS = ["drop", "low", "close", "high", "bright"];
 export { VOICINGS };
