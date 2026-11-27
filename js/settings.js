@@ -1,15 +1,15 @@
 // Applies loaded settings to the UI (applySettings, markOn) and the toast.
-import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.9-d1fa72e";
-import { syncKeySel } from "./keys.js?v=2026.11.27.9-d1fa72e";
-import { setBpm } from "./loop.js?v=2026.11.27.9-d1fa72e";
-import { VOICINGS, state, shared } from "./state.js?v=2026.11.27.9-d1fa72e";
-import { Theory } from "./theory/index.js?v=2026.11.27.9-d1fa72e";
-import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.27.9-d1fa72e";
-import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.27.9-d1fa72e";
-import { paintSimple } from "./ui/layout.js?v=2026.11.27.9-d1fa72e";
-import { setKeyModeState } from "./ui/palette.js?v=2026.11.27.9-d1fa72e";
-import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.27.9-d1fa72e";
-import { lookApplyNow } from "./ui/look.js?v=2026.11.27.9-d1fa72e";
+import { api as ChordAudio } from "./audio/index.js?v=2026.11.27.10-2e424f6";
+import { syncKeySel } from "./keys.js?v=2026.11.27.10-2e424f6";
+import { setBpm } from "./loop.js?v=2026.11.27.10-2e424f6";
+import { VOICINGS, state, shared } from "./state.js?v=2026.11.27.10-2e424f6";
+import { Theory } from "./theory/index.js?v=2026.11.27.10-2e424f6";
+import { applyStylePreset, enforceYogaDeepPaletteGate, setWarmth, styleTrim } from "./styles.js?v=2026.11.27.10-2e424f6";
+import { paintProgNumsBtn, paintPlayAlongBtn, setVolume, setBand } from "./ui/gear.js?v=2026.11.27.10-2e424f6";
+import { paintSimple } from "./ui/layout.js?v=2026.11.27.10-2e424f6";
+import { setKeyModeState } from "./ui/palette.js?v=2026.11.27.10-2e424f6";
+import { dumpSustain, paintSustainBtn } from "./ui/sustain.js?v=2026.11.27.10-2e424f6";
+import { lookApplyNow } from "./ui/look.js?v=2026.11.27.10-2e424f6";
 
 // N20 PR-A (Simple phone portrait): the style chips sit on one scrolling line. Scroll the picked chip fully into
 // view, clear of the 20 px right fade, after settings load, on a style pick, on resize / rotation and on entering
