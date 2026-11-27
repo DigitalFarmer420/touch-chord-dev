@@ -1,6 +1,6 @@
 // Enharmonic / clean root spellings used by the UI.
-import { Theory } from "./index.js?v=2026.11.27.17-d5707c5";
-import { wrap12 } from "./quality.js?v=2026.11.27.17-d5707c5";
+import { Theory } from "./index.js?v=2026.11.27.18-39ade9c";
+import { wrap12 } from "./quality.js?v=2026.11.27.18-39ade9c";
 
 // The other single-accidental spelling of a root (E\u266d <-> D\u266f), or null.
 export function enharmonicSpell(rootPc, rs) {
